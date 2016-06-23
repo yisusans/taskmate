@@ -3,7 +3,7 @@ class CreateCompletions < ActiveRecord::Migration
     create_table :completions do |t|
 
     	t.boolean :completed
-    	t.integer :completer_id
+      t.references :user
     	t.date :date_complete
     	t.references :task
     	

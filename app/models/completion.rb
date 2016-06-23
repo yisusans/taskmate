@@ -1,5 +1,8 @@
 class Completion < ActiveRecord::Base
-	has_many :completers, {class_name: "User", foreign_key: "completer_id"}
-	belongs_to :tasks
 
+	belongs_to :user
+	belongs_to :completer, class_name: "User"
+
+	belongs_to :task
+	
 end

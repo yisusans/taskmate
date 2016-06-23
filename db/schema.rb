@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 20160623184909) do
   create_table "assignments", force: :cascade do |t|
     t.integer  "task_id"
     t.integer  "assignee_id"
+    t.integer  "assigner_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "completions", force: :cascade do |t|
     t.boolean  "completed"
-    t.integer  "completer_id"
+    t.integer  "user_id"
     t.date     "date_complete"
     t.integer  "task_id"
     t.datetime "created_at",    null: false
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160623184909) do
     t.string   "priority"
     t.string   "task"
     t.date     "due_date"
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.integer  "group_id"
     t.boolean  "repeat"
     t.datetime "created_at", null: false
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160623184909) do
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "email",           null: false
+    t.string   "phone_number"
     t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
