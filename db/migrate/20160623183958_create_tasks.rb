@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
     	t.string :task
     	t.date :due_date
       t.integer :creator_id
+      t.integer :assigner_id
     	t.references :group
     	t.boolean :repeat 
 

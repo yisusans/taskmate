@@ -4,6 +4,7 @@ class CreateAssignments < ActiveRecord::Migration
 
     	t.references :task
     	t.integer :assignee_id
+    	t.integer :assigner_id
 
       t.timestamps null: false
     end
