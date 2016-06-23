@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :assignments
   resources :completions
-  resources :memberships
+  resources :memberships, only: :destroy
   resources :groups
   resources :tasks
   get 'login' => 'sessions#new'

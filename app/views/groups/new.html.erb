@@ -1,5 +1,20 @@
-<h1>New Group</h1>
+<% provide(:title, '| Create a Group') %>
+<h3>Create a Group:</h3>
+<div>
+<% if flash %>
+      <% flash.each do |key, value| %>
+        <div><%= value.first %></div>
+      <% end %>
 
-<%= render 'form' %>
+<% end %>
+</div>
 
-<%= link_to 'Back', groups_path %>
+<div>
+  <div>
+    <%= form_for(@group) do |f| %>
+      <%= f.text_field :name, placeholder: "group name"%>
+      <%= f.submit "create" %>
+
+    <% end %>
+  </div>
+</div>
