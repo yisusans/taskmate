@@ -4,8 +4,8 @@ class CreateTasks < ActiveRecord::Migration
     	t.string :priority
     	t.string :task
     	t.date :due_date
-    	t.integer :assigned_by
-    	t.references :group_id
+      t.integer :creator_id
+    	t.references :group
     	t.boolean :repeat 
 
       t.timestamps null: false
