@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Completions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @completions.each do |completion| %>
+      <tr>
+        <td><%= link_to 'Show', completion %></td>
+        <td><%= link_to 'Edit', edit_completion_path(completion) %></td>
+        <td><%= link_to 'Destroy', completion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Completion', new_completion_path %>
