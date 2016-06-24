@@ -1,6 +1,6 @@
 <h3>Create a New Task:</h3>
 
-<%= form_for [@task, @group.tasks.new], url: tasks_path(@task) do |f| %>
+<%= form_for @task do |f| %>
 	<div><%= f.hidden_field :group_id,  value: @group.id %></div>
 	<div>Task: <%= f.text_field :task %></div>
 	<div>Date Due: <%= f.date_select :due_date %></div>

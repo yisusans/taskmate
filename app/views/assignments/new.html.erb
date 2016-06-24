@@ -1,5 +1,11 @@
+<% provide(:title, '| Assign a Task') %>
+
 <h1>New Assignment</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', assignments_path %>
+<%= form_for @task do |f| %>
+	<div><%= f.hidden_field :group_id,  value: @group.id %></div>
+	<div>Task: <%= f.text_field :task %></div>
+	<div>Date Due: <%= f.date_select :due_date %></div>
+	<div><%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]]%></div>
+    <%= f.submit "create" %>
+<% end %>
