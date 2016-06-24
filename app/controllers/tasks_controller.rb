@@ -1,7 +1,5 @@
 class TasksController < ApplicationController
-
-  def show
-  end
+  include ApplicationHelper
 
   def new
     @task = Task.new
@@ -11,7 +9,13 @@ class TasksController < ApplicationController
   end
 
   def create
+    binding.pry
     @task = Task.new(task_params)
+    if @task.save
+      redirect_to @group
+    else
+      flash[:errors] = @task.errors.full_messages
+    end
   end
 
   def update
@@ -37,6 +41,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:priority, :task, :due_date, :user_id, :group_id, :repeat)
+      params.require(:task).permit(:priority, :task, :due_date, :user_id, :group_id, :repeats)
     end
 end

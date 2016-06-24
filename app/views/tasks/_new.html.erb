@@ -1,0 +1,9 @@
+<h3>Create a New Task:</h3>
+
+<%binding.pry%>
+<%= form_tag(url: tasks_path, method: "post") %>
+	<div><%= hidden_field_tag(:group_id, value=@group.id)%></div>
+	<div>Task: <%= text_field_tag :task %></div>
+	<div>Date Due: <%= date_field_tag :due_date %></div>
+	<div><%=select_tag :priority, options_for_select([ "high", "medium", "low" ])%></div>
+<div><%= submit_tag "create" %></div>
