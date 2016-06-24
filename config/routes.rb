@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :assignments
   resources :completions
-  resources :memberships
+  resources :memberships, only: :destroy
   resources :groups
   resources :tasks
   get 'login' => 'sessions#new'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users, :except => [:index]
+  post "tasks" => "tasks#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
