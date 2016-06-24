@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def is_from_facebook?
+    self.provider == "facebook"
+  end
 end
