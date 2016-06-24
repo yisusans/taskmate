@@ -20,12 +20,16 @@ nav {
   color: white;
 }
 
-.footer-copyright {
+footer.page-footer {
   background-color: #8cdbd7;
 }
 
-.page-footer {
-  background-color: #8cdbd7;
+a:visited {
+    color: white;
 }
 
-
+#footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
