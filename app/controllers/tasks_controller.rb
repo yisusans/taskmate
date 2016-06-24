@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    binding.pry
+    @group = Group.find_by(id: params[:task][:group_id])
     @task = Task.new(task_params)
     if @task.save
       redirect_to @group
