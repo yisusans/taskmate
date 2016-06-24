@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# this will help with keeping sensitive info such as username and password by keeping them as environment variables. also helps launch on heroku
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

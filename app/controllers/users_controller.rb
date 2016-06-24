@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      
+      # Sends email to user when user is created.
+      ModelMailer.test_email(@user).deliver
+
       log_in(@user)
       redirect_to @user
     else
