@@ -3,7 +3,7 @@
 <%= form_for @task do |f| %>
 	<div><%= f.hidden_field :group_id,  value: @group.id %></div>
 	<div>Task: <%= f.text_field :task %></div>
-	<div>Date Due: <%= f.date_select :due_date %></div>
-	<div><%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]]%></div>
+	<div>Date Due: <%= f.date_field :due_date, class: "datepicker" %></div>
+	<div><%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
     <%= f.submit "create" %>
 <% end %>
