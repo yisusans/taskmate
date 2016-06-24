@@ -1,0 +1,13 @@
+<% provide(:title, '| Assign a Task') %>
+
+<h1>New Assignment</h1>
+
+<%= form_for @assignment do |f| %>
+	<div><%= f.hidden_field :task_id,  value: @task %></div>
+	<div><%= f.text_area %></div>
+    <%= f.submit "create" %>
+<% end %>
+
+    	t.references :task
+    	t.integer :assignee_id
+    	t.integer :assigner_id

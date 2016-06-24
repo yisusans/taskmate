@@ -30,6 +30,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+    @assignment = Assignment.new
+  end
+
   def destroy
     set_task
     @group = Group.find_by(id: @task.group.id)
