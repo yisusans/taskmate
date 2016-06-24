@@ -8,7 +8,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find_by(id: params[:id])
     @members = @group.users
-    @task = @group.tasks.new
+    @task = Task.new
+    @membership = Membership.new
   end
 
   def new
@@ -19,7 +20,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @group = Group.new(group_params)
 
     if @group.save

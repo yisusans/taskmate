@@ -31,13 +31,16 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    set_task
+    @group = Group.find_by(id: @task.group.id)
     @task.destroy
+    redirect_to @group
   end
 
   private
 
     def set_task
-      @task = Task.find(params[:id])
+      @task = Task.find_by(id: params[:id])
     end
 
     def task_params
