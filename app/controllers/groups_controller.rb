@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @group = Group.new(group_params)
 
     if @group.save

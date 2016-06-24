@@ -3,7 +3,7 @@
 <div>
 	<ul>
 	<% @members.each do |member| %>
-		<li><%= link_to member.username, user_path(member) %> |
+		<li><%= link_to member.email, user_path(member) %> |
 			<%= link_to "remove", membership_path(group: @group, user: member),
 								  method: :delete,
 								  data: { confirm: 'Last chance, still want to delete?'} %>
@@ -20,6 +20,6 @@
 
 	Add a member to this group:
 <h3>Tasks:</h3>
-    <%= render '/tasks/new' %>
+    <%= render partial: '/tasks/new' %>
 
 </div>
