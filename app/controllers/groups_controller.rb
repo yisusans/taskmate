@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
   include ApplicationHelper
 
+  def index
+    @groups = Group.all
+  end
+
   def show
     @group = Group.find_by(id: params[:id])
     @members = @group.users

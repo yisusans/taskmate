@@ -1,21 +1,24 @@
 Rails.application.routes.draw do
-  
+
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        passwords: 'users/passwords',
+        registrations: 'users/registrations',
+        confirmations: 'users/confirmations'
+      }
+
+  resources :users, only: [:index,:show]
   resources :assignments
   resources :completions
   resources :memberships, only: :destroy
   resources :groups
   resources :tasks
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
 
-  resources :users, :except => [:index]
-  post "tasks" => "tasks#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'groups#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
