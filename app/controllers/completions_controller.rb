@@ -5,24 +5,21 @@ class CompletionsController < ApplicationController
     @completion = Completion.new
   end
 
-  def edit
-  end
-
   def create
-    @completion = Completion.new(completion_params)
-  end
-
-  def update
-    respond_to do |format|
-      if @completion.update(completion_params)
-        format.html { redirect_to @completion, notice: 'Completion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @completion }
-      else
-        format.html { render :edit }
-        format.json { render json: @completion.errors, status: :unprocessable_entity }
-      end
+    @task = Task.find(params[:completion][:task_id])
+    @completion = Completion.new(completed: true,
+                                 user_id: current_user.id,
+                                 date_complete: params[:completion][:date_complete],
+                                 task_id: @task.id
+                                 )
+    if @completion.save
+      redirect_to @task
+    else
+      flash[:errors] = @completion.errors.full_messages
+      redirect_to @task
     end
   end
+
 
 
   private
@@ -32,6 +29,6 @@ class CompletionsController < ApplicationController
     end
 
     def completion_params
-      params.fetch(:completion, {})
+      params.require(:completion).permit(:assignee_id)
     end
 end

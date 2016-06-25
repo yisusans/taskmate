@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 	has_many :completions
 	has_many :completed_tasks, through: :completions, source: :task
 
+private
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -35,6 +37,10 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def self.search_user(search)
+      where("LOWER(email) LIKE LOWER(?)", "%#{search}%")
   end
 
 end

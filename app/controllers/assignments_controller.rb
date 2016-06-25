@@ -13,12 +13,17 @@ class AssignmentsController < ApplicationController
       @task = Task.find_by(id: params[:assignment][:task_id])
       @group = Group.find_by(id: @task.group_id)
       user = params[:assignment][:assignee_id]
-      binding.pry
-      assignee = @group.users.search_user
-      @assignment = Assignment.new(task_id: params[:id], 
-                                   assignee_id: assignee,
+      assignee = @group.users.search_user(user)
+      @assignment = Assignment.new(task_id: @task.id, 
+                                   assignee_id: assignee.first.id,
                                    assigner_id: current_user.id )
-      puts "end"
+      if @assignment.save
+        redirect_to @task
+      else
+        flash[:errors] = @assignment.errors.full_messages
+        redirect_to @task
+      end
+
     end
 
   private
