@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  # before_action :authenticate_user!, except: [:create]
 
   def new
     super
