@@ -33,6 +33,7 @@ class InvitesController < ApplicationController
 		@user = User.find(current_user.id)
 		if @invite
 			@invite.destroy
+			Membership.create(group_id: @group.id, user_id: current_user.id)
 			redirect_to @group
 		else
 			flash[:errors] = ["Sorry, try again."]
