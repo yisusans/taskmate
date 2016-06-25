@@ -11,6 +11,13 @@
 	<% end %>
 	</ul>
 </div>
+<div> Invite someone to your group: </div>
+<% if flash %>
+      <% flash.each do |key, value| %>
+        <div><%= value.first %></div>
+      <% end %>
+<% end %>
+<%= render partial: '/invites/new' %>
 
 <div>
 <ul>
