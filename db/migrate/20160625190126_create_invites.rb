@@ -3,6 +3,7 @@ class CreateInvites < ActiveRecord::Migration
     create_table :invites do |t|
     	t.integer :invitee_id
     	t.integer :inviter_id
+    	t.string :status, default: "pending"
 
       t.timestamps null: false
     end
