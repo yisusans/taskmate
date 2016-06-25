@@ -37,6 +37,7 @@ gem 'omniauth-facebook'
 # gem 'unicorn'
 
 gem 'materialize-sass'
+gem "font-awesome-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
