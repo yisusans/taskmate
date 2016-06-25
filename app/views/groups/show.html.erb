@@ -15,8 +15,8 @@
 <div>
 <ul>
 	<%@group.tasks.each do |task|%>
-		<li><%=task.task%>
-			| <%= link_to "assign", new_assignment_path %>
+		<li><%=link_to task.task, task_path(task.id) %>
+			| <%= link_to "assign", task_path(task) %>
 			| <%= link_to "delete", task_path(task), 
 									method: :delete, 
 									data: { 

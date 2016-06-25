@@ -1,1 +1,22 @@
-Task show page
+<h4><%=@task.task%></h4>
+
+Assigned Tasks:
+
+
+
+<% if @task.completions == false %>
+	<br />
+	<%= render partial: '/assignments/new'%>
+	<br />
+	<%= render partial: '/completions/new' %>
+<% else %>
+
+	<% @task.assignments.each do |t| %>
+		<div><%= t.assignee.email %> has been assigned to this task on <%= long_form_date(t.created_at) %>.</div>
+	<% end %>
+	
+	<%= @task.completions.first.user.email%> completed this task on <%=long_form_date(@task.completions.first.date_complete)%>
+
+	<br/>
+<% end %>
+

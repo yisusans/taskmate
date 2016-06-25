@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-susan = User.create!(email: "ssyssy@susan.com",
-					 password: "000000")
-joe = User.create!(email: "joe_joe@joe.com",
-				   password: "000000")
 
 group = Group.create!(name: "291 Crown Street APT 1")
 
