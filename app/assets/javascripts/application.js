@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize/extras/nouislider
+//= require private_pub
