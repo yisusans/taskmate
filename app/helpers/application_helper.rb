@@ -8,4 +8,11 @@ module ApplicationHelper
 	def long_form_date(timestamp)
 	    timestamp.strftime('%B %e, %Y')
 	end
+
+	# def redirect_to_login
+	# 	if current_user.id != params[:id]
+	# 		flash[:errors] = ["You do not have access to this page."]
+	# 		redirect_to '/users/sign_in'
+	# 	end
+	# end
 end

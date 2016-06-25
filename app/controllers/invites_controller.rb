@@ -23,7 +23,21 @@ class InvitesController < ApplicationController
 			@invite.save
 			redirect_to @group
 		end			
+	end
 
+	def accept
+		@group = Group.find(params[:group_id])
+		@invite = Invite.find_by(group_id: @group.id,
+								invitee_id: current_user.id)
+
+		@user = User.find(current_user.id)
+		if @invite
+			@invite.destroy
+			redirect_to @group
+		else
+			flash[:errors] = ["Sorry, try again."]
+			redirect_to @user
+		end
 	end
 end
 # check to see if this person is already a member

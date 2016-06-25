@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 
 	has_many :tasks
 
-  has_many :invites, foreign_key: :invitee_id, class_name: "Invite"
-  has_many :invites, foreign_key: :inviter_id, class_name: "Invite"
+  has_many :invites_received, foreign_key: :invitee_id, class_name: "Invite"
+  has_many :invites_given, foreign_key: :inviter_id, class_name: "Invite"
 
 	has_many :assignments
 
