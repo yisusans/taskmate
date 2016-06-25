@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160625200157) do
   create_table "invites", force: :cascade do |t|
     t.integer  "invitee_id"
     t.integer  "inviter_id"
+    t.integer  "group_id"
     t.string   "status",     default: "pending"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false

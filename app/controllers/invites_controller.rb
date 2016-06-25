@@ -18,7 +18,8 @@ class InvitesController < ApplicationController
 			redirect_to @group
 		else
 			@invite = Invite.new(inviter_id: current_user.id,
-							 invitee_id: new_member.id)
+							 invitee_id: new_member.id,
+							 group_id: @group.id)
 			@invite.save
 			redirect_to @group
 		end			
