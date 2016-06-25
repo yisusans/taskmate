@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
 	has_many :tasks
 
+  has_many :invites
+
 	has_many :assignments
 
 	has_many :assignments_given, foreign_key: :assigner_id, class_name: 'Assignment'
