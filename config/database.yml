@@ -71,15 +71,16 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-DATABASE_URL="postgres://zhamyptiokqwog:zlIyJGcFynEUTaEIWDvkZtH9rk@ec2-54-235-177-62.compute-1.amazonaws.com:5432/ddspbapndlb3ma"
+#DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
 #
-   production:
-     url: <%= ENV['DATABASE_URL'] %>
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
   database: taskmate_production
   username: taskmate
   password: <%= ENV['TASKMATE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
