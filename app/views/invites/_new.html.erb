@@ -1,0 +1,5 @@
+<%= form_for @invite do |f| %>
+	<%= f.hidden_field :group, value: @group.id %>
+	<%= f.text_field :invitee, placeholder: "member"%>
+	<%= f.submit %>
+<% end %>

@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
     @members = @group.users
     @task = Task.new
     @membership = Membership.new
+    @invite = Invite.new
   end
 
   def new
