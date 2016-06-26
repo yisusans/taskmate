@@ -1,19 +1,24 @@
-<h4> <%= @group.name %></h4>
-
 <div>
-	<h6>Members:</h6>
-	<ul>
-	<% @members.each do |member| %>
-		<li><%= link_to member.email, user_path(member) %> |
-			<%= link_to "remove", membership_path(group: @group, user: member),
+	<h4 class="center-align group-name"><%= @group.name %></h4>
+</div>
+  
+
+	<div class="card blue-grey lighten-5">
+     <div class="card-content black-text">
+        <span class="card-title">Members:</span>
+      </div>
+        <div class="card-action">
+          <% @members.each do |member| %>
+						<li><%= link_to member.email, user_path(member) %> |
+						<%= link_to "remove", membership_path(group: @group, user: member),
 								  method: :delete,
 								  data: { confirm: 'Still want to delete a member?'} %>
 								  </li>
-	<% end %>
-	</ul>
-</div>
+					<% end %>
+        </div>
+      </div>
 
-<div> Invite someone to your group: </div>
+<div class="group-invite"><p> Invite someone to your group: </p></div>
 <% if flash %>
       <% flash.each do |key, value| %>
         <div><%= value.first %></div>
@@ -21,22 +26,22 @@
 <% end %>
 <%= render partial: '/invites/new' %>
 
-<div>
-<ul>
-	<%@group.tasks.each do |task|%>
-		<li><%=link_to task.task, task_path(task.id) %>
-			| <%= link_to "assign", task_path(task) %>
-			| <%= link_to "delete", task_path(task), 
-									method: :delete, 
-									data: { 
-										confirm: 'Sure you want to delete a task?'}  %>
 
-		</li>
-	<%end%>
-</ul>
+<div>
+	<h4>Tasks:</h4>
+		<ul>
+			<%@group.tasks.each do |task|%>
+				<li><%=link_to task.task, task_path(task.id) %>
+					| <%= link_to "assign", task_path(task) %>
+					| <%= link_to "delete", task_path(task), 
+											method: :delete, 
+											data: { 
+												confirm: 'Sure you want to delete a task?'}  %>
+				</li>
+			<%end%>
+		</ul>
 </div>
 
 <div>
-<h3>Tasks:</h3>
     <%= render partial: '/tasks/new' %>
 </div>
