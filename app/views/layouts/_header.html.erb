@@ -1,9 +1,12 @@
 
   <ul id="dropdown1" class="dropdown-content">
+  <% if current_user %>
     <%current_user.groups.each do |group|%>
       <li class="drop-down-links"><%=link_to group.name, group_path(group)%></li>
       <li class="divider"></li>
       <%end%>
+  <%end%>
+
   </ul>
   <nav>
     <div class="nav-wrapper red lighten-1">

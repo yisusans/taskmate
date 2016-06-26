@@ -11,7 +11,7 @@ class InvitesController < ApplicationController
 
 
 		if !new_member
-			flash[:errors] = ["Sorry, this person is not a member."]
+			flash[:errors] = ["Sorry, this person is not a member of TaskMate."]
 			redirect_to @group
 		elsif member?(new_member)
 			flash[:errors] = ["This person is already a member of your group."]
