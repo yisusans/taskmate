@@ -77,9 +77,10 @@ ActiveRecord::Schema.define(version: 20160625200157) do
     t.date     "due_date"
     t.integer  "user_id"
     t.integer  "group_id"
-    t.boolean  "repeat"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "repeat"
+    t.date     "repeat_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
