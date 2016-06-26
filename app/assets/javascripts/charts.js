@@ -36,8 +36,7 @@ $(function () {
 });
 
 
-// Incomplete tasks for week
-// Tasks completed by each member for week
+
 
 
 
