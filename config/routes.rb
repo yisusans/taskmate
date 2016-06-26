@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :messages
+  resources :messages, except: [:update, :edit]
   resources :conversations
   devise_for :users, controllers: {
         sessions: 'users/sessions',
@@ -11,13 +11,13 @@ Rails.application.routes.draw do
       }
 
   resources :users, only: [:index,:show]
-  resources :assignments
-  resources :completions
+  resources :assignments, except: [:edit, :update]
+  resources :completions, except: [:edit, :update]
   resources :memberships, only: :destroy
-  resources :groups
-  resources :tasks
+  resources :groups, except: [:index, :update, :edit]
+  resources :tasks, except: [:update, :edit]
   resources :welcome, only: :index
-  resources :invites
+  resources :invites, except: [:index, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

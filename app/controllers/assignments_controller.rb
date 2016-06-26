@@ -1,9 +1,5 @@
 class AssignmentsController < ApplicationController
   include ApplicationHelper
-  
-  	def send_test_email
-  		ModelMailer.test_email(@user).deliver
-  	end
 
     def new
       @assignment = Assignment.new
