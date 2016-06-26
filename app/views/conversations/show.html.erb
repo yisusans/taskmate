@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to @conversation.group.name, group_path(@conversation.group) %> |
 <%= link_to 'Back', conversations_path %>
 
-
 <div class="chatboxcontent">
-    <% if @messages.any? %>
-        <%= render @messages %>
-    <% end %>
+    <%= render @messages if @messages %>
 </div>
 
 <div class="chatboxinput">
-    <%= form_for([@conversation, @message], :remote
-     => true, :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-    <%= f.text_area :body, class:"chatboxtextarea",
+    <%= form_for([@conversation, @message], remote: true, url: messages_path(@message)) do |f| %>
+    <%= f.text_area :content, class:"chatboxtextarea",
        "data-cid" => @conversation.id %>
     <div class="chat-form-btns">
       <%= f.submit "send", class: "btn btn-
@@ -23,3 +19,5 @@
     </div>
   <% end %>
 </div>
+
+<%= subscribe_to conversation_path(@conversation) %>

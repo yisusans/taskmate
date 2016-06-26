@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
 	has_many :completions
 	has_many :completed_tasks, through: :completions, source: :task
 
+  has_many :messages
+
+  has_many :messages_sent, foreign_key: :sender_id, class_name: "Message"
+  has_many :messages_received, foreign_key: :receiver_id, class_name: "Message"
+
 private
 
   def self.from_omniauth(auth)
