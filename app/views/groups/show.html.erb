@@ -1,6 +1,7 @@
-<h1> <%= @group.name %></h1>
+<h4> <%= @group.name %></h4>
 
 <div>
+	<h6>Members:</h6>
 	<ul>
 	<% @members.each do |member| %>
 		<li><%= link_to member.email, user_path(member) %> |
@@ -11,6 +12,7 @@
 	<% end %>
 	</ul>
 </div>
+
 <div> Invite someone to your group: </div>
 <% if flash %>
       <% flash.each do |key, value| %>
