@@ -11,6 +11,15 @@ class TasksController < ApplicationController
   def create
     @group = Group.find_by(id: params[:task][:group_id])
     @task = Task.new(task_params)
+
+    if @task.repeat == "weekly"
+      @task.repeat_date = Date.today + 7.days
+    elsif @task.repeat == "biweekly"
+      @task.repeat_date = Date.today + 14.days
+    elsif @task.repeat == "monthly"
+      @task.repeat_date = Date.today + 30.days
+    end
+
     if @task.save
       redirect_to @group
     else
@@ -39,6 +48,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:priority, :task, :due_date, :user_id, :group_id, :repeats)
+      params.require(:task).permit(:priority, :task, :due_date, :user_id, :group_id, :repeat)
     end
 end

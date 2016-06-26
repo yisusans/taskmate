@@ -4,6 +4,7 @@
 	<div><%= f.hidden_field :group_id,  value: @group.id %></div>
 	<div>Task: <%= f.text_field :task %></div>
 	<div>Date Due: <%= f.date_field :due_date, class: "datepicker" %></div>
-	<div><%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
+	<div>Priority: <%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
+	<div>Repeat: <%= f.select :repeat, [["one time task", ""], ["weekly", "weekly"], ["every other week", "biweekly"], ["monthly", "monthly"]], {}, class: "browser-default"%></div>
     <%= f.submit "create" %>
 <% end %>

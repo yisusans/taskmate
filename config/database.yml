@@ -72,9 +72,6 @@ test:
 # available as an environment variable. For example:
 #
 #DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-
-# DATABASE_URL="postgres://zhamyptiokqwog:zlIyJGcFynEUTaEIWDvkZtH9rk@ec2-54-235-177-62.compute-1.amazonaws.com:5432/ddspbapndlb3ma"
-
 #
 # You can use this database configuration with:
 #
@@ -87,3 +84,6 @@ production:
   username: taskmate
   password: <%= ENV['TASKMATE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
+
+# this line was put in when i was trying to get postgres working with heroku, probably not needed but here it is just in case
+# DATABASE_URL="postgres://zhamyptiokqwog:zlIyJGcFynEUTaEIWDvkZtH9rk@ec2-54-235-177-62.compute-1.amazonaws.com:5432/ddspbapndlb3ma"

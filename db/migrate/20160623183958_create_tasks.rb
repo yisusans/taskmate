@@ -6,7 +6,8 @@ class CreateTasks < ActiveRecord::Migration
     	t.date :due_date
       t.references :user
     	t.references :group
-    	t.boolean :repeat 
+    	t.string :repeat 
+      t.date :repeat_date
 
       t.timestamps null: false
     end
