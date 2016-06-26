@@ -1,7 +1,7 @@
 # Regular Roommates
 greene_house = Group.create!(name: "Greene House")
-ena = User.create!(name: "Ena", email: "ena@taskmate.com", password: "123456")
-greg = User.create!(name:"Greg", email:"greg@gmail.com", password: "123456")
+ena = User.create!(name: "Ena", email: "ena@taskmate.com", password: "123456", unconfirmed_email: nil)
+greg = User.create!(name:"Greg", email:"greg@gmail.com", password: "123456", unconfirmed_email: nil)
 ena.memberships.create!(group_id: greene_house.id)
 
 Task.create!(task: "Take out the trash!", group_id: greene_house.id, user_id: 1, priority: "!!!")
@@ -19,7 +19,7 @@ ena.messages_sent.create!(content: "ill fuck your shit up Greg.", conversation_i
 bonnaroo = Group.create!(name: "Bonnaroo 2013")
 
 # Susan's old co-op
-co-op = Group.create!(name: "Coin Court & Casino Co-op")
+coop = Group.create!(name: "Coin Court & Casino Co-op")
 
 # Dev Bootcamp
 dbc = Group.create!(name: "Dev Bootcamp")

@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find_by(id: params[:id])
     @message = Message.new
     @messages = @conversation.messages
+    
   end
 
   def destroy
