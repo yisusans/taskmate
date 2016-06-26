@@ -1,47 +1,73 @@
+<div class="container">
 <div>
 	<h4 class="center-align group-name"><%= @group.name %></h4>
 </div>
   
-
+<div class="row">
 	<div class="card blue-grey lighten-5">
      <div class="card-content black-text">
         <span class="card-title">Members:</span>
       </div>
         <div class="card-action">
+        <ul>
           <% @members.each do |member| %>
-						<li><%= link_to member.email, user_path(member) %> |
+						<li><%= link_to member.email, user_path(member) %> | 
 						<%= link_to "remove", membership_path(group: @group, user: member),
 								  method: :delete,
 								  data: { confirm: 'Still want to delete a member?'} %>
 								  </li>
 					<% end %>
+					</ul>
         </div>
       </div>
 
+
 <div class="group-invite"><p> Invite someone to your group: </p></div>
-<% if flash %>
-      <% flash.each do |key, value| %>
-        <div><%= value.first %></div>
-      <% end %>
-<% end %>
+	<% if flash %>
+     <% flash.each do |key, value| %>
+       <div><%= value.first %></div>
+     <% end %>
+	<% end %>
+
 <%= render partial: '/invites/new' %>
 
 
-<div>
-	<h4>Tasks:</h4>
-		<ul>
-			<%@group.tasks.each do |task|%>
-				<li><%=link_to task.task, task_path(task.id) %>
-					| <%= link_to "assign", task_path(task) %>
-					| <%= link_to "delete", task_path(task), 
+
+	<div class="card blue-grey lighten-5">
+     <div class="card-content black-text">
+        <span class="card-title">Tasks:</span>
+      </div>
+        <div class="card-action">
+        	<ul>
+          <% @group.tasks.each do |task| %>
+       
+          	<% if task.priority == "3" %>
+          		<li class="high-priority">
+          	<% elsif task.priority == "2" %>
+          			<li class="medium-priority">
+          	<% else %>
+          		<li class="low-priority">
+          		<% end %>
+							<%=link_to task.task, task_path(task.id) %>
+							| <%= link_to "assign", task_path(task) %>
+							| <%= link_to "delete", task_path(task), 
 											method: :delete, 
 											data: { 
 												confirm: 'Sure you want to delete a task?'}  %>
-				</li>
-			<%end%>
-		</ul>
-</div>
+						</li>
+							
+          	
+					<%end%>
+				</ul>
+      </div>
+    </div>
+
+  </div> <!-- row div -->
+
+
 
 <div>
     <%= render partial: '/tasks/new' %>
+</div>
+
 </div>
