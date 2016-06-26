@@ -1,20 +1,6 @@
 <body>
-  <h3>Hello, <%= @user.name %></h3>
-
-    <div class="row">
-        <div class="col s4">
-          <div class="card blue-grey lighten-5">
-            <div class="card-content black-text">
-              <span class="card-title">Groups</span>
-            </div>
-            <div class="card-action">
-              <% @groups.each do |group| %>
-                <div><%= link_to group.name, group_path(group) %></div>
-            <% end %>
-          </div>
-        </div>
-
-        <p>Pending Invitations: </p>
+  <h4>Hello, <%= @user.name %></h4>
+    <p>Pending Invitations: </p>
           <% @user.invites_received.each do |invite| %>
             <% group = Group.find(invite.group_id)%> <!--  refactor to create another association, group has many invites -->
               <%= link_to group.name, group%>
@@ -23,33 +9,52 @@
             <%= submit_tag "accept" %>
           <% end %> 
         <% end %>
-        </div>
 
-        <div class="col s4">
+    <div class="row">
+        <div class=""hide-on-small-only"">
+          <div class="col s4">
+        </div>
           <div class="card blue-grey lighten-5">
             <div class="card-content black-text">
-              <span class="card-title">Tasks:</span>
+              <span class="card-title">Groups:</span>
             </div>
             <div class="card-action">
-              <% @tasks.each do |task| %>
-                <div><i class="fa fa-square-o check-box" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s4">
-          <div class="card blue-grey lighten-5">
-            <div class="card-content black-text">
-              <span class="card-title">Complete:</span>
-            </div>
-            <div class="card-action">
-              <% @completed_tasks.each do |task| %>
-                <div><i class="fa fa-check-square" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
-              <% end %>
-            </div>
+              <% @groups.each do |group| %>
+                <div><%= link_to group.name, group_path(group) %></div>
+            <% end %>
           </div>
         </div>
       </div>
+
+      <div class=""hide-on-small-only"">
+          <div class="col s4">
+        </div>
+        <div class="card blue-grey lighten-5">
+          <div class="card-content black-text">
+            <span class="card-title">Tasks:</span>
+          </div>
+          <div class="card-action">
+            <% @tasks.each do |task| %>
+              <div><i class="fa fa-square-o check-box" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class=""hide-on-small-only"">
+          <div class="col s4">
+        </div>
+        <div class="card blue-grey lighten-5">
+          <div class="card-content black-text">
+            <span class="card-title">Complete:</span>
+          </div>
+          <div class="card-action">
+            <% @completed_tasks.each do |task| %>
+              <div><i class="fa fa-check-square" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </body>
