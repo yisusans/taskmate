@@ -1,13 +1,17 @@
 module GroupsHelper
 
 	def member?(user)
-		!foo(user).empty?
+		!find_by_email(user).empty?
 	end
 
-	def foo(user)
+	def find_by_email(user)
 		@group.memberships.select do |p|
 			p.user.email == user.email
 		end
+	end
+
+	def redirect_to_user
+		redirect_to current_user unless member?(current_user)
 	end
 
 end

@@ -48,7 +48,7 @@ private
   end
 
   def self.search_user(search)
-      where("LOWER(email) LIKE LOWER(?)", "%#{search}%")
+      where("LOWER(name) LIKE LOWER(?)", "%#{search}%")
   end
 
 end
