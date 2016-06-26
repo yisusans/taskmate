@@ -9,15 +9,4 @@ module ApplicationHelper
 	    timestamp.strftime('%B %e, %Y')
 	end
 
-	def redirect_to_login
-		!logged_in
-		redirect_to '/users/sign_in'
-	end
-
-	# def redirect_to_login
-	# 	if current_user.id != params[:id]
-	# 		flash[:errors] = ["You do not have access to this page."]
-	# 		redirect_to '/users/sign_in'
-	# 	end
-	# end
 end
