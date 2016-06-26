@@ -2,10 +2,9 @@
   <h4>Hello, <%= @user.name %></h4>
     <p>Pending Invitations: </p>
           <% @user.invites_received.each do |invite| %>
-            <% group = Group.find(invite.group_id)%> <!--  refactor to create another association, group has many invites -->
-              <%= link_to group.name, group%>
-              <%= form_tag(accept_path, method: "post") do %>
-              <%= hidden_field_tag :group_id, group.id %>
+            <%= link_to group.name, group%>
+            <%= form_tag(accept_path, method: "post") do %>
+            <%= hidden_field_tag :group_id, invite.group.id %>
             <%= submit_tag "accept" %>
           <% end %> 
         <% end %>
