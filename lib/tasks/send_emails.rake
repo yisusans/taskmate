@@ -3,7 +3,7 @@ require 'rake'
 task :send_weekly_email => :environment do
   users = User.all
 
-  if Date.today.cwday == 6
+  if Date.today.cwday == 7
     users.each do |user|
     puts "Sending weekly emails..."
     Mailer.test_email(user).deliver
