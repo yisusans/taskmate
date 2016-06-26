@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.group-name {
+  font-weight: 900;
+}
+
+.high-priority {
+  background-color: red;
+}
+
+.medium-priority {
+  background-color: orange;
+}
+
+.low-priority {
+  background-color: yellow;
+}
