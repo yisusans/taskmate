@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#this gem is required for proper logging on heroku
+gem 'rails_12factor', group: :production
+
 # Rails
 gem 'rails', '4.2.6'
 # Postgres
