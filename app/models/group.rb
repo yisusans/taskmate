@@ -4,4 +4,5 @@ class Group < ActiveRecord::Base
 	has_many :tasks
 	has_many :invites
 
+	has_one :conversation
 end
