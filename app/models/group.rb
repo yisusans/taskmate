@@ -5,4 +5,6 @@ class Group < ActiveRecord::Base
 	has_many :invites
 
 	has_one :conversation
+
+	validates :name, presence: true
 end

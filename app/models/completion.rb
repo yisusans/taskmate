@@ -5,4 +5,5 @@ class Completion < ActiveRecord::Base
 
 	belongs_to :task
 	
+	validates :completed, :user, :date_complete, presence: true
 end
