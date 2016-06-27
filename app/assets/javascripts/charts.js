@@ -23,12 +23,12 @@ $(function () {
                     showInLegend: true
                 }
             },
-            series: [{
-                name: 'Tasks',
-                colorByPoint: true,
-                data: [{
-                    name: '',
-                    y: null
+                series: [{
+                    name: 'Tasks',
+                    colorByPoint: true,
+                    data: [{
+                        name: '',
+                        y: null
                 }]
             }]
         });
@@ -36,7 +36,15 @@ $(function () {
 });
 
 
+// Incomplete tasks for week
+// @tasks = Group.tasks
+// y = @tasks.incomplete.count
 
+// Tasks completed by each member for week
+
+// @members = Group.users
+// @members.each do |member|
+//     member.completed_tasks
 
 
 
