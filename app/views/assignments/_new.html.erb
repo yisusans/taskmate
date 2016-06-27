@@ -1,6 +1,7 @@
 
 <%= form_for @assignment do |f| %>
 	<div><%= f.hidden_field :task_id,  value: @task.id %></div>
-	<div><%= f.text_area :assignee_id %></div>
-    <%= f.submit "create" %>
+	<%=f.collection_select(:assignee_id, @task.group.users, :id, :name, {}, class: "browser-default")%>
+	
+    <%= f.submit "Assign task" %>
 <% end %>

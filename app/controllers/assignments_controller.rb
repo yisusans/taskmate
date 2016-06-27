@@ -8,10 +8,10 @@ class AssignmentsController < ApplicationController
     def create
       @task = Task.find_by(id: params[:assignment][:task_id])
       @group = Group.find_by(id: @task.group_id)
-      user = params[:assignment][:assignee_id]
-      assignee = @group.users.search_user(user)
+      user = params[:assignment][:assignee_id].to_i
+      assignee = @group.users.find(user)
       @assignment = Assignment.new(task_id: @task.id, 
-                                   assignee_id: assignee.first.id,
+                                   assignee_id: assignee.id,
                                    assigner_id: current_user.id )
       if @assignment.save
         redirect_to @task
