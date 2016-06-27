@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :conversations, only: [:index, :create, :show] do
+    resources :messages, only: :create
+  end
 
-  resources :messages, except: [:update, :edit]
-  resources :conversations
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         passwords: 'users/passwords',

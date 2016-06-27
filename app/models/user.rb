@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :messages_received, foreign_key: :receiver_id, class_name: "Message"
 
   validates :name, presence: true
+  has_many :conversations, through: :messages
+
 private
 
   def self.from_omniauth(auth)
@@ -50,6 +52,10 @@ private
 
   def self.search_user(search)
       where("LOWER(name) LIKE LOWER(?)", "%#{search}%")
+  end
+
+  def list_conversations
+    self.conversations
   end
 
 end

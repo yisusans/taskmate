@@ -1,18 +1,13 @@
-<div class="chatboxcontent">
-    <%= render @messages if @messages %>
+<div class="messages-container">
+  <%= render @messages if @messages %>
 </div>
 
-<div class="chatboxinput">
-  <%= form_for([@conversation, @message], remote: true, url: messages_path(@message)) do |f| %>
-    <%= f.text_area :content, class:"chatboxtextarea",
-     "data-cid" => @conversation.id %>
-    <div class="chat-form-btns">
-    <%= f.submit "send", class: "btn btn-
-       primary btn-sm btn-submit"%>
-    <%= f.submit "New Title!", class: "btn btn-
-       success btn-sm btn-new-title"%>
-  </div>
-<% end %>
+<div class="messages-input-container">
+  <%= form_for @conversation, remote: true do |f| %>
+    <%= f.fields_for :messages do |m_f| %>
+      <%= m_f.text_area :content %>
+    <%= f.submit "send"%>
+  <% end %>
 </div>
 
 <%= subscribe_to conversation_path(@conversation) %>
