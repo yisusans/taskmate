@@ -1,37 +1,37 @@
 
-    $(document).ready(function () {
-        var dataFromAttr = JSON.parse($('#container').attr('data-chart-info'));
+    // $(document).ready(function () {
+    //     var dataFromAttr = JSON.parse($('#container').attr('data-chart-info'));
 
-        $('#container').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Weekly Task Progress'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-                series: [{
-                    name: 'Tasks',
-                    colorByPoint: true,
-                    data: dataFromAttr
-                }]
-            });
-        });
+    //     $('#container').highcharts({
+    //         chart: {
+    //             plotBackgroundColor: null,
+    //             plotBorderWidth: null,
+    //             plotShadow: false,
+    //             type: 'pie'
+    //         },
+    //         title: {
+    //             text: 'Weekly Task Progress'
+    //         },
+    //         tooltip: {
+    //             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    //         },
+    //         plotOptions: {
+    //             pie: {
+    //                 allowPointSelect: true,
+    //                 cursor: 'pointer',
+    //                 dataLabels: {
+    //                     enabled: false
+    //                 },
+    //                 showInLegend: true
+    //             }
+    //         },
+    //             series: [{
+    //                 name: 'Tasks',
+    //                 colorByPoint: true,
+    //                 data: dataFromAttr
+    //             }]
+    //         });
+    //     });
 
 
 
