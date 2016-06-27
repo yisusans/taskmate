@@ -24,6 +24,7 @@ class TasksController < ApplicationController
       redirect_to @group
     else
       flash[:errors] = @task.errors.full_messages
+      redirect_to @group
     end
   end
 
