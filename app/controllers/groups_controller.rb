@@ -8,6 +8,16 @@ class GroupsController < ApplicationController
     @task = Task.new
     @membership = Membership.new
     @invite = Invite.new
+    # Tasks this week
+    @tasks_this_week = @group.tasks.where(due_date: Date.today..(Date.today + 7)).count
+
+    @data_for_chart = {"All Tasks" => @tasks_this_week }
+    # Tasks completed by each member for week
+    @members.each do |member|
+        member.name
+        member.tasks.count
+    end
+
   end
 
   def new

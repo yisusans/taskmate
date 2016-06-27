@@ -35,17 +35,3 @@ $(function () {
     });
 });
 
-
-// Incomplete tasks for week
-// @tasks = Group.tasks
-// y = @tasks.incomplete.count
-
-// Tasks completed by each member for week
-
-// @members = Group.users
-// @members.each do |member|
-//     member.completed_tasks
-
-
-
-
