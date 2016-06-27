@@ -11,14 +11,12 @@ class GroupsController < ApplicationController
     # Tasks this week
     @tasks_this_week = @group.tasks.where(due_date: Date.today..(Date.today + 7)).count
     # Data for pie-chart
-    @data_for_chart = [{name: "Tasks to Be Completed", y: @tasks_this_week} ]
+    @data_for_chart = [{name: "Weekly Tasks", y: @tasks_this_week} ]
     # Tasks completed by each member for week
     @members.each do |member|
       @data_for_chart.push({name: member.name, y: member.tasks.select{ |task| task.completions != nil }.count}) 
     end
   end
-
-  
 
   def new
     @group = Group.new

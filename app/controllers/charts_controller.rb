@@ -1,3 +1,0 @@
-ChartsController < ApplicationController
-
-end
