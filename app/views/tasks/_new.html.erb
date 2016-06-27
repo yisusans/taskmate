@@ -2,12 +2,19 @@
 
 <div class= "input-field">
 <%= form_for @task do |f| %>
-	<div><%= f.hidden_field :group_id,  value: @group.id %></div>
+	<% if current_user.groups.length > 1 %>
+		<% group = f.collection_select(:group_id, current_user.groups, :id, :name, {}, class: "browser-default") %>
+		<div>Group: <%= group %></div>
+	<% else %>
+		<%= f.hidden_field :group_id,  value: current_user.groups.first.id %>
+	<% end %>
 	<div>Task: <%= f.text_field :task,                      
                       			:"data-success" => "right" %></div>
 	<div>Date Due: <%= f.date_field :due_date, class: "datepicker" %></div>
 	<div>Priority: <%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
 	<div>Repeat: <%= f.select :repeat, [["one time task", ""], ["weekly", "weekly"], ["every other week", "biweekly"], ["monthly", "monthly"]], {}, class: "browser-default"%></div>
+
     <%= f.submit "create" %>
 <% end %>
+
 </div>

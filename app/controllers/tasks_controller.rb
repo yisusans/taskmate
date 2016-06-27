@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @user = current_user
   end
 
   def edit
