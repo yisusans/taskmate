@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   include ApplicationHelper
-  
+
   def show
     @group = Group.find_by(id: params[:id])
     redirect_to_user
@@ -26,8 +26,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      @membership = Membership.create(group_id: @group.id,
-                                      user_id: current_user.id)
+      @membership = Membership.create(group_id: @group.id, user_id: current_user.id)
+
+      Conversation.create!(group_id: @group.id)
+
       redirect_to @group
     else
       flash[:errors] = @group.errors.full_messages

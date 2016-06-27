@@ -15,3 +15,5 @@
 //= require_tree .
 //= require materialize/extras/nouislider
 //= require private_pub
+//= require ./controllers
+//= require ./models
