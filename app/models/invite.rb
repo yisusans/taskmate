@@ -6,5 +6,6 @@ class Invite < ActiveRecord::Base
 
 	belongs_to :group
 
+	validates :inviter_id, :invitee_id, null: false
 
 end
