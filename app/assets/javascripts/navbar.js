@@ -9,7 +9,7 @@ $(document).ready(function(){
   		{
   		  constrain_width: false,
   		  hover :true,
-  	      belowOrigin: true
+  	    belowOrigin: true
   		}
   	);
 });

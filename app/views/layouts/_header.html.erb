@@ -3,8 +3,8 @@
     <ul id="user-groups" class="dropdown-content">
   <% if current_user %>
     <%current_user.groups.each do |group|%>
-      <li class="drop-down-links"><%=link_to group.name, group_path(group)%></li>
       <li class="divider"></li>
+      <li class="drop-down-links"><%=link_to group.name, group_path(group)%></li>
       <%end%>
   <%end%>
   </ul>
@@ -19,6 +19,7 @@
       <ul class="right hide-on-med-and-down nav-link-format">
       <% if current_user %>
         <li><a class="dropdown-button" data-activates="user-groups">Groups</a></li>
+        <li><%= link_to "New Groups", new_group_path %></li>
         <li><%= link_to current_user.name, user_path(current_user)%></li>
         <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
