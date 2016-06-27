@@ -26,11 +26,11 @@ $(document).ready(function () {
                     showInLegend: true
                 }
             },
-                series: [{
-                    name: 'Tasks',
-                    colorByPoint: true,
-                    data: dataFromAttr
-                }]
+            series: [{
+                name: 'Tasks',
+                colorByPoint: true,
+                data: dataFromAttr
+            }]
             });
     }
 });
