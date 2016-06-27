@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     # Tasks this week
     @tasks_this_week = @group.tasks.where(due_date: Date.today..(Date.today + 7)).count
 
-    @data_for_chart = {"All Tasks" => @tasks_this_week }
+    @data_for_chart = {"All Tasks" => @tasks_this_week }.to_json
     # Tasks completed by each member for week
     @members.each do |member|
         member.name
@@ -19,6 +19,8 @@ class GroupsController < ApplicationController
     end
 
   end
+
+  
 
   def new
     @group = Group.new
