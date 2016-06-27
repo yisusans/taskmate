@@ -11,7 +11,7 @@
             </div>
             <div class="card-action">
               <% @user.invites_received.each do |invite| %>
-                <%= link_to group.name, group%>
+                <%= link_to invite.group.name, invite.group%>
                 <%= form_tag(accept_path, method: "post") do %>
                   <%= hidden_field_tag :group_id, invite.group.id %>
                   <%= submit_tag "accept" %>
