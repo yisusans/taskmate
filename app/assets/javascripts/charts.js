@@ -1,5 +1,7 @@
-$(function () {
+
     $(document).ready(function () {
+        var dataFromAttr = JSON.parse($('#container').attr('data-chart-info'));
+            // debugger;
         $('#container').highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -26,12 +28,20 @@ $(function () {
                 series: [{
                     name: 'Tasks',
                     colorByPoint: true,
-                    data: [{
-                        name: '',
-                        y: null
+                    data: [
+                       {
+                        name: "All Tasks",
+                        y: 3
+                       }, {
+                        name: "Ena Bek",
+                        y: 1
+                       } 
+                    ]
                 }]
-            }]
+            });
         });
-    });
-});
+
+
+
+
 
