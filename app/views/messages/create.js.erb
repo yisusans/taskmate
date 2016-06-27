@@ -1,1 +1,12 @@
-<%= publish_to conversation_path(@conversation) %>
+<% publish_to conversation_path(@message.conversation) do %>
+  var messagesContainer = $(".messages-container")
+
+
+  messagesContainer.append("<img src='<%= @message.sender.image %>'><%= @message.sender.name %><div><%= @message.content %></div>");
+
+  messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+
+  $(".message-input").val("");
+
+
+<% end %>

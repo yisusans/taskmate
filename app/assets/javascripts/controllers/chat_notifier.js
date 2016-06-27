@@ -1,3 +1,3 @@
-$(function() {
-  var poller = new Poller("/conversations.js");
-});
+// $(function() {
+//   var poller = new Poller("/conversations.js");
+// });

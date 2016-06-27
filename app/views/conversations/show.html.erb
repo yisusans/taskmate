@@ -1,0 +1,21 @@
+<div class="chat-box">
+  <div class="messages-container">
+    <% if @messages %>
+      <% @messages.each do |message| %>
+        <img src="<%= message.sender.image %>">
+        <%= message.sender.name %>
+        <div><%= message.content %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="input-container">
+    <%= form_for [@conversation, Message.new], remote: true do |f| %>
+        <%= f.text_area :content, class: "message-input" %>
+        <%= f.hidden_field :conversation_id, value: @conversation.id %>
+        <%= f.submit "send" %>
+    <% end %>
+  </div>
+</div>
+
+<%= subscribe_to conversation_path(@conversation) %>
