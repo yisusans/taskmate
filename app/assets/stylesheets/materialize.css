@@ -2740,12 +2740,12 @@ i {
 i.left {
   float: left;
   margin-left: 10px;
-  margin-right: 90px;
+  margin-right: 65px;
 }
 
 i.right {
   float: right;
-  margin-left: 100px;
+  margin-left: 60px;
 }
 
 i.tiny {

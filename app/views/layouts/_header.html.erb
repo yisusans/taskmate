@@ -3,9 +3,18 @@
   <ul class="nav-mobile">
     <% if current_user %>
       <li><i class="material-icons left">reorder</i></li> 
-      <li><i class="material-icons center susan">assignment_ind</i></li>
-      <li><i class="material-icons center susan">supervisor_account</i></li>
-      <li><i class="material-icons center susan">assignment</i></li> 
+      <li><a href="/users/<%=current_user.id%>">
+          <i class="material-icons center header-center-icons">assignment</i>
+          </a>
+      </li> 
+      <li><a href="/users/<%=current_user.id%>">
+          <i class="material-icons center header-center-icons">supervisor_account</i>
+          </a>
+      </li>
+      <li><a href="/users/<%=current_user.id%>">
+          <i class="material-icons center header-center-icons">assignment_ind</i>
+          </a>
+      </li>
       <li><i class="material-icons right">mode_edit</i></li> 
 
     <% else %>
