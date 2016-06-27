@@ -3,8 +3,9 @@
 	<h4 class="center-align group-name"><%= @group.name %></h4>
 </div>
 
-
-<div id="container" style="width:100%; height:400px;" data-chart-info="<%= @data_for_chart.to_json %>"></div>
+<% if @group.tasks.length > 1 %>
+  <div id="container" style="width:100%; height:400px;" data-chart-info="<%= @data_for_chart.to_json %>"></div>
+<%end%>
 
 <% if flash %>
       <% flash.each do |key, value| %>

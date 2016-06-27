@@ -14,7 +14,10 @@ class GroupsController < ApplicationController
     @data_for_chart = [{name: "Weekly Tasks", y: @tasks_this_week} ]
     # Tasks completed by each member for week
     @members.each do |member|
-      @data_for_chart.push({name: member.name, y: member.tasks.select{ |task| task.completions != nil }.count}) 
+      @data_for_chart.push({
+        name: member.name, 
+        y: member.tasks.select{ |task| task.completions.length }.length
+      }) 
     end
   end
 
