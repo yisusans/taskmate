@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20160625200157) do
   end
 
   create_table "completions", force: :cascade do |t|
-    t.boolean  "completed"
-    t.integer  "user_id"
-    t.date     "date_complete"
+    t.boolean  "completed",     null: false
+    t.integer  "user_id",       null: false
+    t.date     "date_complete", null: false
     t.integer  "task_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20160625200157) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "invites", force: :cascade do |t|
-    t.integer  "invitee_id"
-    t.integer  "inviter_id"
+    t.integer  "invitee_id",                     null: false
+    t.integer  "inviter_id",                     null: false
     t.integer  "group_id"
     t.string   "status",     default: "pending"
     t.datetime "created_at",                     null: false
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20160625200157) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "priority"
-    t.string   "task"
-    t.date     "due_date"
+    t.string   "priority",    null: false
+    t.string   "task",        null: false
+    t.date     "due_date",    null: false
     t.integer  "user_id"
     t.integer  "group_id"
     t.string   "repeat"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20160625200157) do
 
   create_table "users", force: :cascade do |t|
     t.string   "phone_number"
-    t.string   "name"
+    t.string   "name",                                null: false
     t.binary   "image"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

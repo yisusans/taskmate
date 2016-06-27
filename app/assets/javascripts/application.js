@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require materialize/extras/nouislider
 //= require private_pub
 //= require ./controllers
 //= require ./models
+//= require_tree .
