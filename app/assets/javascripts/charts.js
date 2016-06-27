@@ -1,5 +1,7 @@
-$(function () {
+
     $(document).ready(function () {
+        var dataFromAttr = JSON.parse($('#container').attr('data-chart-info'));
+
         $('#container').highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -23,19 +25,13 @@ $(function () {
                     showInLegend: true
                 }
             },
-            series: [{
-                name: 'Tasks',
-                colorByPoint: true,
-                data: [{
-                    name: '',
-                    y: null
+                series: [{
+                    name: 'Tasks',
+                    colorByPoint: true,
+                    data: dataFromAttr
                 }]
-            }]
+            });
         });
-    });
-});
-
-
 
 
 
