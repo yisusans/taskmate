@@ -1,7 +1,5 @@
 <body>
   <h4>Hello, <%= @user.name %></h4>
-<<<<<<< 7f9b559056d68d10c970a9673144ef07c5ce6e9e
-  
     <div class="row">
       <div class=""hide-on-small-only"">
         <div class="col s4">
@@ -16,24 +14,13 @@
                 <%= form_tag(accept_path, method: "post") do %>
                   <%= hidden_field_tag :group_id, invite.group.id %>
                   <%= submit_tag "accept" %>
-                <% end %> 
+                <% end %>
               <% end %>
-           </div>  
+           </div>
           </div>
         </div>
       </div>
 
-
-=======
-    <p>Pending Invitations: </p>
-          <% @user.invites_received.each do |invite| %>
-            <%= link_to group.name, group%>
-            <%= form_tag(accept_path, method: "post") do %>
-            <%= hidden_field_tag :group_id, invite.group.id %>
-            <%= submit_tag "accept" %>
-          <% end %>
-        <% end %>
->>>>>>> finish chat functionality
 
     <div class="row">
         <div class=""hide-on-small-only"">
