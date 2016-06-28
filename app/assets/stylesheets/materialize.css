@@ -4301,6 +4301,9 @@ nav .input-field label.active {
 
 a {
   text-decoration: none;
+}
+
+a.user-profile {
   color: white;
   font-size: 15px;
 }
