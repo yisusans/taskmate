@@ -11,30 +11,30 @@
                   <%= form_tag(accept_path, method: "post") do %>
                   <%= hidden_field_tag :group_id, invite.group.id %>
                   <%= submit_tag "thumb_up", class:"material-icons thumb_up" %>
-          Pending Invitation: <%= link_to invite.group.name, group_path(invite.group.id) %>
+          Join: <%= link_to invite.group.name, group_path(invite.group.id) %>
                 <% end %>
         </div>
       </div>
     </div>
 <% end %>
 
-<p class="flow-text">Assigned Tasks:</p>
 <% assigned_tasks.each do |task| %>
   <div class="col s12 m6">
     <div class="card red lighten-3">
       <div class="card-content blue-text">
-          <%= link_to task.task, group_path(task.group_id), class: "user-profile" %>
+      <i class="material-icons announcement">assignment</i> 
+          <%= link_to task.task, task_path(task.id), class: "user-profile" %>
       </div>
     </div>
   </div>
 <% end %>
 
-<p class="flow-text">Task's You've Created:</p>
 <% incomplete_tasks.each do |task| %>
   <div class="col s12 m6">
     <div class="card teal lighten-3">
       <div class="card-content white-text">
-          <%= link_to task.task, group_path(task.group_id), class: "user-profile" %>
+      <i class="material-icons schedule">schedule</i>
+          <%= link_to task.task, task_path(task.id), class: "user-profile" %>
       </div>
     </div>
   </div>

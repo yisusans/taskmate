@@ -7,12 +7,21 @@
   margin-right: 10px;
 }
 
-.thumb_up {
-	display: inline-block;
-}
-
 .profile-pic {
 	text-align: center;
 	margin-top: 3em;
 	margin-bottom: 3em;
+}
+
+i.announcement {
+	color: white;
+	margin-right: 1em;
+}
+
+i.schedule {
+	margin-right: 1em;
+}
+
+div.vertical-line {
+	border-left: thin solid #ff0000;
 }
