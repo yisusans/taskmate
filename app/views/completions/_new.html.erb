@@ -1,6 +1,6 @@
 <%= form_for @completion do |f| %>
 	<%= f.hidden_field :task_id, value: @task.id %>
-	<div>Date Completed: <%= f.date_field :date_complete, class: "datepicker" %></div>
-	<%= f.check_box :completed %>
-	<%= f.submit value="complete!" %>
+
+	<%= f.check_box :completed, id: "completed_checkbox" %> 
+	
 <% end %>
