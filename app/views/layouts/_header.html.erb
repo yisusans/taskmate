@@ -1,5 +1,3 @@
-
-
 <nav class="nav-wrapper">
   <ul id="slide-out" class="side-nav">
     <li><a href="#!">First Sidebar Link</a></li>
@@ -25,7 +23,14 @@
       <li><i class="material-icons right">mode_edit</i></li> 
 
     <% else %>
-      <li class="brand-logo">TaskMate</li>
+      <div class="hide-on-large-only">
+        <li class="brand-logo">TaskMate</li>
+      </div>
+      <div class="hide-on-small-only">
+        <div class="center-align">
+        <li class="brand-logo">TaskMate</li>
+        </div>
+      </div>
     <% end %>
   </ul>
 </nav>
