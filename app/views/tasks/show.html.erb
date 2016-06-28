@@ -1,4 +1,6 @@
+<%= render partial: '/completions/new' %>
 <h4><%=@task.task%></h4>
+
 
 
 
@@ -6,21 +8,21 @@
 	<% if @task.assignments.length < @task.group.users.length%>
 		<%= render partial: '/assignments/new'%>
 	<%end%>	
-
+      
 	<% if @task.assignments.length > 0 %>
 		<% @task.assignments.each do |assignment| %>
-			<div> <p> Assigned to <%= assignment.assignee.name%> by <%= assignment.assigner.name%></p></div>
+			<div class="col s12 m6">
+				<div class="card teal lighten-3">
+			    	<div class="card-content white-text">
+				    	<p><i class="material-icons announcement">assignment</i> Assigned to <%= assignment.assignee.name%> by <%= assignment.assigner.name%></p>
+				    	<p> on: <%= long_form_date(assignment.created_at) %></p>
+		 			</div>
+		 		</div>
+			</div>
 		<%end%>
 	<%end%>
 
 	<br />
-	<%= render partial: '/completions/new' %>
-
-	<% @task.assignments.each do |t| %>
-		<div><%= t.assignee.email %> has been assigned to this task on <%= long_form_date(t.created_at) %>.</div>
-	<% end %>
 	
-
-	<br/>
 
 

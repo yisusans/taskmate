@@ -9,7 +9,7 @@ class CompletionsController < ApplicationController
     @task = Task.find(params[:completion][:task_id])
     @completion = Completion.new(completed: true,
                                  user_id: current_user.id,
-                                 date_complete: params[:completion][:date_complete],
+                                 date_complete: Date.today,
                                  task_id: @task.id
                                  )
     if @completion.save
