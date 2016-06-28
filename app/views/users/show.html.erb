@@ -18,12 +18,25 @@
     </div>
 <% end %>
 
-<% incomplete_tasks.each do |task| %>
+<p class="flow-text">Assigned Tasks:</p>
+<% assigned_tasks.each do |task| %>
   <div class="col s12 m6">
-    <div class="card blue-grey lighten-5">
+    <div class="card red lighten-3">
       <div class="card-content blue-text">
-          Task: <%= link_to task.task, group_path(task.group_id) %>
+          <%= link_to task.task, group_path(task.group_id) %>
       </div>
     </div>
   </div>
 <% end %>
+
+<p class="flow-text">Task's You've Created:</p>
+<% incomplete_tasks.each do |task| %>
+  <div class="col s12 m6">
+    <div class="card teal lighten-3">
+      <div class="card-content white-text">
+          <%= link_to task.task, group_path(task.group_id) %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
