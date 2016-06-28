@@ -11,12 +11,10 @@
  * file per style scope.
  *
  *= require_self
- *= require font-awesome
  *= require materialize
  *= require_tree .
  */
 
-@import "font-awesome";
 
 nav {
   background-color: #ef5350;
@@ -28,7 +26,7 @@ footer.page-footer {
   width: "100%";
   bottom: 0;
 }
-  
+
 footer.page-footer  {
   background-color: #8cdbd7;
   position: fixed;
@@ -40,7 +38,7 @@ footer.page-footer  {
 .brand-logo {
   font-family: 'Open Sans', sans-serif;
 }
-  
+
 
 .nav-link-format li a {
   font-size: 1.2em;
@@ -50,7 +48,7 @@ footer.page-footer  {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-  
+
 
 .move-right{
   margin-left: 50px;
@@ -92,10 +90,3 @@ footer.page-footer {
 .button-collapse {
   color: #ef9a9a;
 }
-
-
-
-  
-
-
-
