@@ -12,7 +12,8 @@ class TasksController < ApplicationController
   def create
     @group = Group.find_by(id: params[:task][:group_id])
     @task = Task.new(task_params)
-
+    @task.user_id = current_user.id
+    
     if @task.repeat == "weekly"
       @task.repeat_date = Date.today + 7.days
     elsif @task.repeat == "biweekly"

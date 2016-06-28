@@ -1,5 +1,7 @@
 <% if current_user %>
-  <div><img src="<%=current_user.image%>", class="circle"/></div>
+  <div class="profile-pic">
+    <img src="<%=current_user.image%>", class="circle"/>
+  </div>
 <% end %>
 
 <% current_user.invites_received.each do |invite| %>
@@ -16,62 +18,12 @@
     </div>
 <% end %>
 
-<% current_user.tasks.each do |task| %>
-    <div class="col s12 m6">
-      <div class="card blue-grey lighten-5">
-        <div class="card-content blue-text">
+<% incomplete_tasks.each do |task| %>
+  <div class="col s12 m6">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content blue-text">
           Task: <%= link_to task.task, group_path(task.group_id) %>
-        </div>
       </div>
     </div>
+  </div>
 <% end %>
-            
-
-
-    <div class="row">
-      <div class=""hide-on-small-only"">
-        <div class="col s4">
-        </div>
-            <div class="card blue-grey lighten-5">
-            <div class="card-content black-text">
-            Pending Invitations:
-            </div>
-            <div class="card-action">
-              <% @user.invites_received.each do |invite| %>
-                <%= link_to invite.group.name, invite.group%>
-              <% end %>
-           </div>
-          </div>
-        </div>
-      </div>
-
-      <div class=""hide-on-small-only"">
-          <div class="col s4">
-        </div>
-        <div class="card blue-grey lighten-5">
-          <div class="card-content black-text">
-            <span class="card-title">Tasks:</span>
-          </div>
-          <div class="card-action">
-            <% @tasks.each do |task| %>
-              <div><i class="fa fa-square-o check-box" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-      <div class=""hide-on-small-only"">
-          <div class="col s4">
-        </div>
-        <div class="card blue-grey lighten-5">
-          <div class="card-content black-text">
-            <span class="card-title">Complete:</span>
-          </div>
-          <div class="card-action">
-            <% @completed_tasks.each do |task| %>
-              <div><i class="fa fa-check-square" aria-hidden="true"></i><%= link_to task.task, group_path(task.group_id) %></div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>

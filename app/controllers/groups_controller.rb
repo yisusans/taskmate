@@ -27,7 +27,6 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-
     if @group.save
       @membership = Membership.create(group_id: @group.id, user_id: current_user.id)
 

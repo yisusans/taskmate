@@ -3,6 +3,7 @@ module ApplicationHelper
 	include MembershipsHelper
 	include AssignmentsHelper
 	include UsersHelper
+	include TasksHelper
 
 	# module DateFormatting
 	def long_form_date(timestamp)
