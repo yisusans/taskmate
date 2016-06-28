@@ -1,10 +1,18 @@
 <h4><%=@task.task%></h4>
 
-Assigned Tasks:
 
 
 	<br />
-	<%= render partial: '/assignments/new'%>
+	<% if @task.assignments.length < @task.group.users.length%>
+		<%= render partial: '/assignments/new'%>
+	<%end%>	
+
+	<% if @task.assignments.length > 0 %>
+		<% @task.assignments.each do |assignment| %>
+			<div> <p> Assigned to <%= assignment.assignee.name%> by <%= assignment.assigner.name%></p></div>
+		<%end%>
+	<%end%>
+
 	<br />
 	<%= render partial: '/completions/new' %>
 
