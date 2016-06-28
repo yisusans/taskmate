@@ -32,7 +32,6 @@ gem 'omniauth-facebook'
 
 # styling
 gem 'materialize-sass'
-gem "font-awesome-rails"
 
 # instant messaging
 gem 'faye'

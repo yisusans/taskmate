@@ -7,13 +7,17 @@
 }
 
 .high-priority {
-  background-color: red;
+  font-weight: bolder;
 }
 
 .medium-priority {
-  background-color: orange;
+  font-weight: bold;
 }
 
 .low-priority {
-  background-color: yellow;
+  font-weight: normal;
+}
+
+.news-feed-card {
+  padding-left: 6px;
 }

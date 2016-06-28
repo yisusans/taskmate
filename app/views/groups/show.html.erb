@@ -1,84 +1,28 @@
 <div class="container">
-<div>
-	<h4 class="center-align group-name"><%= @group.name %></h4>
-</div>
+	<div>
+		<h4 class="center-align group-name"><%= @group.name %></h4>
+	</div>
 
-<% if @group.tasks.length > 1 %>
-  <div id="container" style="width:100%; height:400px;" data-chart-info="<%= @data_for_chart.to_json %>"></div>
-<%end%>
+	<% if @group.tasks.length > 1 %>
+	  <div id="container" style="width:100%; height:400px;" data-chart-info="<%= @data_for_chart.to_json %>"></div>
+	<%end%>
 
-<% if flash %>
-      <% flash.each do |key, value| %>
-      <i class="material-icons prefix">error</i>
-      <i class="material-icons prefix">error</i>
-      <i class="material-icons prefix">error</i>
+	<div class="row">
+		<ul class="collection">
+				<% @group.activity.each do |event| %>
+				<li class="collection-item avatar">
+					<img src="<%=subject(event).image%>" class="circle" style="height:3.5em;width:3.5em;"/>
+						<%= link_to subject(event).name, user_path(subject(event)) if subject(event) %>
 
-        <div><%= value.first %></div>
-      <% end %>
-<% end %>
+						<%= verb(event) if verb(event) %>
 
+						<%= link_to direct_obj(event), user_path(direct_obj(event)) if direct_obj(event) %>
 
-<div class="row">
-	<div class="card blue-grey lighten-5">
-     <div class="card-content black-text">
-        <span class="card-title">Members:</span>
-      </div>
-        <div class="card-action">
-        <ul>
-          <% @members.each do |member| %>
-						<li><%= link_to member.email, user_path(member) %> |
-						<%= link_to "remove", membership_path(group: @group, user: member),
-								  method: :delete,
-								  data: { confirm: 'Still want to delete a member?'} %>
-								  </li>
-					<% end %>
-					</ul>
-        </div>
-      </div>
+						<%= preposition(event) if preposition(event) %>
 
-
-<div class="group-invite"><p> Invite someone to your group: </p></div>
-	<% if flash %>
-     <% flash.each do |key, value| %>
-       <div><%= value.first %></div>
-     <% end %>
-	<% end %>
-
-<%= render partial: '/invites/new' %>
-
-
-
-	<div class="card blue-grey lighten-5">
-     <div class="card-content black-text">
-        <span class="card-title">Tasks:</span>
-      </div>
-        <div class="card-action">
-        	<ul>
-          <% @group.tasks.each do |task| %>
-
-          	<% if task.priority == "3" %>
-          		<li class="high-priority">
-          	<% elsif task.priority == "2" %>
-          			<li class="medium-priority">
-          	<% else %>
-          		<li class="low-priority">
-          		<% end %>
-							<%=link_to task.task, task_path(task.id) %>
-							| <%= link_to "assign", task_path(task) %>
-							| <%= link_to "delete", task_path(task),
-											method: :delete,
-											data: {
-												confirm: 'Sure you want to delete a task?'}  %>
-						</li>
-					<%end%>
-				</ul>
-      </div>
-    </div>
-
-  </div> <!-- row div -->
-
-<div>
-    <%= render partial: '/tasks/new' %>
-</div>
-
+						<%= link_to indirect_obj(event), user_path(indirect_obj(event)) if indirect_obj(event) %>
+				</li>
+				<% end %>
+		</ul>
+	</div>
 </div>

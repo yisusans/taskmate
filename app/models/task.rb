@@ -9,4 +9,15 @@ class Task < ActiveRecord::Base
 
 	validates :priority, :task, :due_date, presence: true
 
+	def to_s
+		case self.priority
+		when "3"
+			self.priority = "high-priority"
+		when "2"
+			self.priority = "medium-priority"
+		when "1"
+			self.priority = "low-priority"
+		end
+	end
+
 end
