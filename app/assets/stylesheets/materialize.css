@@ -4933,6 +4933,8 @@ small {
   transition: .3s;
   cursor: pointer;
   vertical-align: middle;
+  margin-bottom: 15px;
+  margin-left: 20px;
 }
 
 .btn-floating i {
@@ -4942,6 +4944,7 @@ small {
   color: #fff;
   font-size: 1.6rem;
   line-height: 37px;
+
 }
 
 .btn-floating:hover {
