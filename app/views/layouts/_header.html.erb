@@ -10,6 +10,7 @@
 
           <a data-activates="slide-out" class="button-collapse">
           <i class="mdi-navigation-menu material-icons">reorder</i></a>
+
           <li><a href="/users/<%=current_user.id%>">  
               <i class="material-icons">assignment</i>
               </a>
@@ -22,10 +23,13 @@
               <i class="material-icons">assignment_ind</i>
               </a>
           </li>
+          <div class="right-align right">
           <li>
             <a href="/conversations"> <!-- get correct path -->
-            <i class="material-icons chat-bubble">chat_bubble</i>
-          </li></a>
+              <i class="material-icons chat-bubble">chat_bubble</i>
+            </a>
+          </li>
+          </div>
         <% else %>
           <div class="hide-on-large-only">
             <li class="brand-logo">TaskMate</li>
