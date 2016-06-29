@@ -27,6 +27,7 @@ module GroupsHelper
 		when "Membership"
 			event.user
 		end
+		event
 	end
 
 	def verb(event)
@@ -47,11 +48,11 @@ module GroupsHelper
 	def direct_task(event)
 		case event.class.name
 			when "Task"
-				event.task
+				event
 			when "Completion"
-				event.task.task
+				event.task
 			when "Assignment"
-				event.task.task
+				event.task
 		end
 	end
 
