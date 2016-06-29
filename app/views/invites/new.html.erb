@@ -8,7 +8,7 @@ Invite a Taskmate Member to join your group:
 			<%= f.hidden_field :group_id,  value: current_user.groups.first.id %>
 		<% end %>
 
-		<%= f.text_field :invitee, placeholder: "enter a member's name or email"  %>
+		<%= f.text_field :invitee, placeholder: "enter a member's email"  %>
 		<%= f.submit "invite"%>
 	<% end %>
 </div>
