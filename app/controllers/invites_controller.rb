@@ -11,10 +11,10 @@ class InvitesController < ApplicationController
 		new_member = User.search_user(params[:invite][:invitee])
 
 		if !new_member
-			flash[:errors] = ["Sorry, this person is not a member of TaskMate."]
-			redirect_to @group
+			error = "Sorry, this person is not a member of TaskMate.".to_json
+			render :status => 404
 		elsif member?(new_member)
-			flash[:errors] = ["This person is already a member of your group."]
+			error = "This person is already a member of your group.".to_json
 			redirect_to @group
 		else
 			@invite = Invite.new(inviter_id: current_user.id,

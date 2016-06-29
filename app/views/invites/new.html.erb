@@ -1,6 +1,8 @@
 Invite a Taskmate Member to join your group:
+
+<div id="invite-error"></div>
 <div class="input-field">
-	<%= form_for @invite do |f| %>
+	<%= form_for @invite, :html => {:id => "invite-form"} do |f| %>
 		<% if current_user.groups.length > 1 %>
 			<% group = f.collection_select(:group_id, current_user.groups, :id, :name, {}, class: "browser-default") %>
 			<div><%= group %></div>
