@@ -11,7 +11,7 @@
 		<ul class="collection">
 				<% @group.activity.each do |event| %>
 				<li class="collection-item avatar">
-					<img src="<%=user(event).image%>" class="circle" style="height:3.5em;width:3.5em;"/>
+					<img src="<%=user(event).image if user(event)%>" class="circle" style="height:3.5em;width:3.5em;"/>
 						<%= link_to user(event).name, user_path(user(event)) if user(event) %>
 
 						<%= verb(event) if verb(event) %>
