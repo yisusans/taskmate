@@ -8,20 +8,20 @@
 	<% if @task.assignments.length < @task.group.users.length%>
 		<%= render partial: '/assignments/new'%>
 	<%end%>	
-      
-	<% if @task.assignments.length > 0 %>
-		<% @task.assignments.each do |assignment| %>
-			<div class="col s12 m6">
-				<div class="card teal lighten-3">
-			    	<div class="card-content white-text">
-				    	<p><i class="material-icons announcement">assignment</i> Assigned to <%= assignment.assignee.name%> by <%= assignment.assigner.name%></p>
-				    	<p> on: <%= long_form_date(assignment.created_at) %></p>
-		 			</div>
-		 		</div>
-			</div>
+    <div id="assignments_container">
+		<% if @task.assignments.length > 0 %>
+			<% @task.assignments.each do |assignment| %>
+				<div class="col s12 m6">
+					<div class="card teal lighten-3">
+				    	<div class="card-content white-text">
+					    	<p><i class="material-icons announcement">assignment</i> Assigned to <%= assignment.assignee.name%> by <%= assignment.assigner.name%></p>
+					    	<p> on: <%= long_form_date(assignment.created_at) %></p>
+			 			</div>
+			 		</div>
+				</div>
+			<%end%>
 		<%end%>
-	<%end%>
-
+	</div>
 	<br />
 	
 
