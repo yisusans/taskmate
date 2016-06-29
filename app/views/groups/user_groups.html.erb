@@ -1,0 +1,10 @@
+<% @groups.each do |group| %>
+    <div class="col s12 m6">
+      <div class="card blue-grey lighten-5">
+        <div class="card-content blue-text">
+          <!-- <i class="material-icons group-icon">supervisor_account</i> -->
+			<%= link_to group.name, group_path(group.id), class: "group-link" %>
+                <% end %>
+        </div>
+      </div>
+    </div>

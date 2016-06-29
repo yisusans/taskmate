@@ -2,6 +2,10 @@ class GroupsController < ApplicationController
   include ApplicationHelper
   before_action :authenticate_user!
 
+  def user_groups
+    @groups = current_user.groups
+  end
+  
   def show
     @group = Group.find_by(id: params[:id])
     redirect_to_user
