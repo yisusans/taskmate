@@ -1,6 +1,6 @@
 Invite a Taskmate Member to join your group:
 
-<div id="invite-error"></div>
+<div id="invite-message"></div>
 <div class="input-field">
 	<%= form_for @invite, :html => {:id => "invite-form"} do |f| %>
 		<% if current_user.groups.length > 1 %>

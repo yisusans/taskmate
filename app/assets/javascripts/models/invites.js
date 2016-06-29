@@ -8,12 +8,13 @@ $(document).ready(function(){
 			url: $target.attr("action"),
 			data: $target.serialize()
 
-		}).done(function(){
-			$("#invite-error").prepend("Invitation sent!")
-			
+		}).done(function(resp){
+			$("#invite-message").html("")
+			$("#invite-message").prepend(resp.responseText)
 		}).error(function(err){
-			// debugger
-			$("#invite-error").prepend(err.responseText)
+			$("#invite-message").html("")
+			$("#invite-message").prepend(err.responseText)
+			$("#invite_invitee").val("")
 			})
 	});
 })

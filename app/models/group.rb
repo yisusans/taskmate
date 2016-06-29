@@ -33,4 +33,5 @@ class Group < ActiveRecord::Base
 	def invitations
 		self.invites if self.invites
 	end
+
 end
