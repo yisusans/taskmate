@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @message = Message.create!(message_params)
     @message.sender_id = current_user.id

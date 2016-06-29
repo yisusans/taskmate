@@ -1,12 +1,14 @@
 module GroupsHelper
 
 	def member?(user)
-		!find_by_email(user).empty?
+		!find_by_email(user).empty? if find_by_email(user)
 	end
 
 	def find_by_email(user)
-		@group.memberships.select do |p|
-			p.user.email == user.email
+		if @group
+			@group.memberships.select do |p|
+				p.user.email == user.email
+			end
 		end
 	end
 

@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   include ApplicationHelper
+  before_action :authenticate_user!
 
     def new
       @assignment = Assignment.new

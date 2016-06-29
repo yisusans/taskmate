@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
+  before_action :authenticate_user!
   
   def show
   	@invite = Invite.new
