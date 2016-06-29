@@ -7,8 +7,8 @@ class InvitesController < ApplicationController
 	end
 
 	def create
-		@group = Group.find(params[:invite][:group])
-		new_member = User.find_by(email: params[:invite][:invitee])
+		@group = Group.find(params[:invite][:group_id])
+		new_member = User.search_user(params[:invite][:invitee])
 		binding.pry
 
 		if !new_member
