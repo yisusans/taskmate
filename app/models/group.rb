@@ -9,7 +9,7 @@ class Group < ActiveRecord::Base
 	validates :name, presence: true
 
 	def activity
-		activity = self.creations + self.assignments + self.invitations + self.memberships
+		activity = self.creations + self.assignments + self.invitations + self.memberships + self.completions
 		activity.uniq!
 		activity.sort_by{ |event| event.updated_at }.reverse
 	end
