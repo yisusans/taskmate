@@ -1,4 +1,4 @@
-<%= form_for @completion, :html => {:class => "foo"} do |f| %>
+<%= form_for @completion, :html => {:class => "completion-checkbox"} do |f| %>
 	<%= f.hidden_field :task_id, value: @task.id %>
 
 	<%= f.check_box :completed, id: "completed_checkbox" %> 
