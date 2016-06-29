@@ -1,5 +1,6 @@
 class MembershipsController < ApplicationController
 	include ApplicationHelper
+  before_action :authenticate_user!
 
 	def new
 		@membership = Membership.new

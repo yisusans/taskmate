@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   include ApplicationHelper
+  before_action :authenticate_user!
 
   def new
     @task = Task.new

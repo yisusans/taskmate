@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   include ApplicationHelper
+  before_action :authenticate_user!
 
   def show
     @group = Group.find_by(id: params[:id])
