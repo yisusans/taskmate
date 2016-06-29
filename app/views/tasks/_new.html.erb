@@ -14,7 +14,7 @@
 	<div>Priority: <%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
 	<div>Repeat: <%= f.select :repeat, [["one time task", ""], ["weekly", "weekly"], ["every other week", "biweekly"], ["monthly", "monthly"]], {}, class: "browser-default"%></div>
 
-    <button class="waves-effect waves-light btn">
+    <button class="waves-effect waves-light btn task-button">
     	<%= f.submit "create" %>
     </button>
 <% end %>
