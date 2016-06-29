@@ -1,5 +1,6 @@
+<div class="container group-form">
 <% provide(:title, '| Create a Group') %>
-<h3>Create a Group:</h3>
+<h4 class="create-group">Create a group:</h4>
 <div>
 <% if flash %>
       <% flash.each do |key, value| %>
@@ -13,8 +14,11 @@
   <div>
     <%= form_for(@group) do |f| %>
       <%= f.text_field :name, placeholder: "group name"%>
-      <%= f.submit "create" %>
+      <button class="waves-effect waves-light btn">
+        <%= f.submit "create" %>
+      </button>
 
     <% end %>
   </div>
+</div>
 </div>

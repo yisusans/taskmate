@@ -1,4 +1,4 @@
-<h3>Create a New Task:</h3>
+<!-- <h3>Create a New Task:</h3> -->
 
 <div class= "input-field">
 <%= form_for @task do |f| %>
@@ -14,7 +14,9 @@
 	<div>Priority: <%= f.select :priority, [["high", 3], ["medium", 2], ["low", 1]], {}, class: "browser-default"%></div>
 	<div>Repeat: <%= f.select :repeat, [["one time task", ""], ["weekly", "weekly"], ["every other week", "biweekly"], ["monthly", "monthly"]], {}, class: "browser-default"%></div>
 
-    <%= f.submit "create" %>
+    <button class="waves-effect waves-light btn task-button">
+    	<%= f.submit "create" %>
+    </button>
 <% end %>
 
 </div>

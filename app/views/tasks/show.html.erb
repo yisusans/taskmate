@@ -1,8 +1,6 @@
+<div class="container">
 <%= render partial: '/completions/new' %>
 <h4><%=@task.task%></h4>
-
-
-
 
 	<br />
 	<% if @task.assignments.length < @task.group.users.length%>
@@ -23,6 +21,6 @@
 		<%end%>
 	</div>
 	<br />
-	
+</div>
 
 
