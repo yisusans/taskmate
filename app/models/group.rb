@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
 	def activity
 		activity = self.creations + self.assignments + self.invitations + self.memberships
 		activity.uniq!
-		activity.sort_by{ |event| event.updated_at }
+		activity.sort_by{ |event| event.updated_at }.reverse
 	end
 
 	def creations

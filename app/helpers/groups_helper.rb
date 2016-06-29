@@ -14,14 +14,14 @@ module GroupsHelper
 		redirect_to current_user unless member?(current_user)
 	end
 
-	def subject(event)
+	def user(event)
 		case event.class.name
 		when "Task"
 			event.user
 		when "Assignment"
 			event.assigner
 		when "Invite"
-			event.invitor
+			event.inviter
 		when "Completion"
 			event.completer
 		when "Membership"
@@ -40,23 +40,23 @@ module GroupsHelper
 		when "Completion"
 			"completed"
 		when "Membership"
-			"joined"
+			"joined the group."
 		end
 	end
 
-	def direct_obj(event)
+	def direct_task(event)
 		case event.class.name
 			when "Task"
 				event.task
 			when "Completion"
 				event.task.task
-			when "Membership"
-				event.group.name
 			when "Assignment"
 				event.task.task
-			when "Invite"
-				event.invitee.name
 		end
+	end
+
+	def direct_user(event)
+		event.invitee if event.class.name == "Invite"
 	end
 
 	def preposition(event)
@@ -64,17 +64,12 @@ module GroupsHelper
 		when "Assignment"
 			"to"
 		when "invited"
-			"to"
+			"to the group."
 		end
 	end
 
-	def indirect_obj(event)
-		case event.class.name
-		when "Assignment"
-			event.assignee.name
-		when "Invite"
-			event.name
-		end
+	def indirect_user(event)
+		event.assignee if event.class.name == "Assignment"
 	end
 
 end
