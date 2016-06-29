@@ -19,13 +19,17 @@
     <% end %>
   </div>
 
+
   <div class="input-container">
     <%= form_for [@conversation, Message.new], remote: true do |f| %>
         <%= f.text_area :content, class: "message-input" %>
         <%= f.hidden_field :conversation_id, value: @conversation.id %>
-        <%= f.submit "send" %>
+        <button class="waves-effect waves-light btn chat-button">
+          <%= f.submit "send" %>
+        </button>
     <% end %>
   </div>
 </div>
 
 <%= subscribe_to conversation_path(@conversation) %>
+
