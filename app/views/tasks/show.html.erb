@@ -2,6 +2,8 @@
 <%= render partial: '/completions/new' %>
 <h4><%=@task.task%></h4>
 
+<div class="task-completed"></div>
+
 	<br />
 	<% if @task.assignments.length < @task.group.users.length%>
 		<%= render partial: '/assignments/new'%>
