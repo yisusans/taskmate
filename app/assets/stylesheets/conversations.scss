@@ -1,3 +1,24 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input-container {
+  position: fixed;
+  bottom:0;
+  width: 90%;
+}
+
+.messages-container {
+  overflow: auto;
+  margin-bottom: 20em;
+}
+
+.this-chatter {
+  display: block;
+  max-width: 90%;
+  margin-top: 5px; margin-bottom: 5px;
+}
+
+.other-chatter {
+  float: right;
+}
