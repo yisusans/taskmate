@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   post 'accept' => 'invites#accept'
+  get 'user_groups' => 'groups#user_groups'
 
 
   # Example of regular route:
