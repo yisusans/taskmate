@@ -14,6 +14,9 @@ class CompletionsController < ApplicationController
                                  task_id: @task.id
                                  )
     if @completion.save
+      if request.xhr?
+        return render partial: '/completions/completion_card', layout: false
+      end
       redirect_to @task
     else
       flash[:errors] = @completion.errors.full_messages

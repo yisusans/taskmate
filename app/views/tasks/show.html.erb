@@ -2,6 +2,12 @@
 <%= render partial: '/completions/new' %>
 <h4><%=@task.task%></h4>
 
+<<<<<<< 3b2906911fac164dc0a43cf68dcc5a8555b2a4a0
+=======
+<div class="task-completed"></div>
+
+
+>>>>>>> working on task completion javascript
 	<br />
 	<% if @task.assignments.length < @task.group.users.length%>
 		<%= render partial: '/assignments/new'%>
