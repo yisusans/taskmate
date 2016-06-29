@@ -1,5 +1,5 @@
 <div class="col s12 m6">
-	<div class="card teal lighten-3">
+	<div class="card red lighten-3">
     	<div class="card-content white-text">
 	    	<p><i class="material-icons announcement">assignments</i> Marked complete by <%= @task.completions.last.completer.name %></p>
 	    	<p> on: <%= long_form_date(@task.completions.last.created_at) %></p>
