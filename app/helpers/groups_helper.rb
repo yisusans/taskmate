@@ -27,7 +27,6 @@ module GroupsHelper
 		when "Membership"
 			event.user
 		end
-		event
 	end
 
 	def verb(event)
