@@ -12,12 +12,18 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+@keyframes fadein{
+   from{opacity:0;}
+   to{opacity:1;}
+}
+
 .welcome-body {
   background: #ef5350; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#ef5350 , #ffcdd2); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#ef5350 , #ffcdd2); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#ef5350 , #ffcdd2); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#ef5350 , #ffcdd2);
+  animation: fadein 3s;
 }
 
 .main-splash-logo {
