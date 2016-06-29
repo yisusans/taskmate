@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
   $(".button-collapse").sideNav({
-    edge: 'left',
-    closeOnClick: true 
+    closeOnClick: true
   });
 
   $(".dropdown-button").dropdown(
