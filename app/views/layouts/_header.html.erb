@@ -6,8 +6,10 @@
   </ul>
 
   <ul id="group-chat-drop" class="dropdown-content">
-    <%current_user.groups.each do |group| %>
-    <li><%= link_to group.name, conversation_path(group.conversation) %></li>
+    <%if current_user%>
+      <%current_user.groups.each do |group| %>
+      <li><%= link_to group.name, conversation_path(group.conversation) %></li>
+      <%end%>
     <%end%>
   </ul>
 
