@@ -2,7 +2,7 @@ class CreateCompletions < ActiveRecord::Migration
   def change
     create_table :completions do |t|
 
-    	t.boolean :completed, null: false
+    	t.boolean :completed, null: false, default: false
       t.references :user, null: false
     	t.date :date_complete, null: false
     	t.references :task

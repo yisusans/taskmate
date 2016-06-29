@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
     @members.each do |member|
       @data_for_chart.push({
         name: member.name, 
-        y: member.tasks.select{ |task| task.completions.length }.length
+        y: member.tasks.select{ |task| task.completions.select {|completed_task| completed_task.completed == false}}.length
       }) 
     end
   end
