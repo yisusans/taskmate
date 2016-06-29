@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20160625200157) do
   end
 
   create_table "completions", force: :cascade do |t|
-    t.boolean  "completed",     null: false
-    t.integer  "user_id",       null: false
-    t.date     "date_complete", null: false
+    t.boolean  "completed",     default: false, null: false
+    t.integer  "user_id",                       null: false
+    t.date     "date_complete",                 null: false
     t.integer  "task_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "conversations", force: :cascade do |t|
