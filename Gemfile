@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby, "~>2.3.0"
 #this gem is required for proper logging on heroku
 gem 'rails_12factor', group: :production
 
