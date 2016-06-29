@@ -1,5 +1,36 @@
-<div class="main-container">
-  <div class="row">
-HELOO
-  </div>
-</div>
+<head>
+  <title>TaskMate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:700|Lato:400' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>  
+<body class="welcome-body">
+
+    <div class="container main-page">
+      <div class="row">
+        <h1 class="main-splash-logo center-align">TaskMate</h1>
+        <h5 class="center-align slogan">A place to share tasks.</h5>
+      </div>
+      <div="buttons">
+        <div class="container center-align">
+        <div class="row buttons">
+          <button class="waves-effect waves-light btn">
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </button>
+          </div>
+          <div class="row buttons">
+          <button class="waves-effect waves-light btn">
+            <%= link_to "Sign In", new_user_session_path %>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</body>
