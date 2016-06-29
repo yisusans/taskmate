@@ -6,13 +6,14 @@ $(document).ready(function(){
 		$.ajax({
 			method: "post",
 			url: $target.attr("action"),
-			data: $target.serialize();
-		}).done(
-			$("#invite-error").html("Invitation sent!")
-		).error(function(err){
-			debugger
-			$("#invite-error").html("Invitation sent!")
+			data: $target.serialize()
 
-		})
+		}).done(function(){
+			$("#invite-error").prepend("Invitation sent!")
+			
+		}).error(function(err){
+			// debugger
+			$("#invite-error").prepend(err.responseText)
+			})
 	});
-});
+})

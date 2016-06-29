@@ -8,17 +8,15 @@ class InvitesController < ApplicationController
 
 	def create
 		@group = Group.find(params[:invite][:group_id])
-		new_member = User.search_user(params[:invite][:invitee])
+		new_member = User.search_user(params[:invite][:invitee]).pluck
 
 		if !new_member
-			error = "Sorry, this person is not a member of TaskMate.".to_json
-			render :status => 404
+			render :json => "No user by that name.", :status => 404
 		elsif member?(new_member)
-			error = "This person is already a member of your group.".to_json
-			redirect_to @group
+			render :json => "This person is already a member.", :status => 406
 		else
 			@invite = Invite.new(inviter_id: current_user.id,
-							 invitee_id: new_member.first.id,
+							 invitee_id: new_member.id,
 							 group_id: @group.id)
 			@invite.save
 			redirect_to @group
