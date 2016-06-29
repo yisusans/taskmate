@@ -1,12 +1,22 @@
 <% publish_to conversation_path(@message.conversation) do %>
-  var messagesContainer = $(".messages-container")
+  var messagesContainer = $("#messages-container")
 
-
-  messagesContainer.append("<img src='<%= @message.sender.image %>'><%= @message.sender.name %><div><%= @message.content %></div>");
-
-  messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+  messagesContainer.append("<div class='chip'><img class='image' src='<%=@message.sender.image if @message.sender.image%>'/><span class='name'><%= @message.sender.name %>:</span><span class='content'><%= @message.content %></span></div>");
 
   $(".message-input").val("");
 
-
 <% end %>
+
+// var Message = function() {
+//   this.content = <%= @message.content %>;
+//   this.sender = <%= @message.sender.name %>;
+//   this.image = <%= @message.sender.image %>;
+// }
+//
+// Message.prototype.render = function() {
+//   var message = $('.chip').clone();
+//   message.children('.image').html(this.image)
+//   message.children('.name').html(this.sender+":")
+//   message.children('.content').html(this.content)
+//   return message;
+// }
