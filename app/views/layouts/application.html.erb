@@ -16,8 +16,9 @@
 </head>  
     <body>
     <%= render 'layouts/header' %>
+<% if current_user %>
     <%= render partial: '/layouts/footer' %>
-
+<% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 

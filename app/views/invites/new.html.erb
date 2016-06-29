@@ -1,0 +1,14 @@
+Invite a Taskmate Member to join your group:
+<div class="input-field">
+	<%= form_for @invite do |f| %>
+		<% if current_user.groups.length > 1 %>
+			<% group = f.collection_select(:group_id, current_user.groups, :id, :name, {}, class: "browser-default") %>
+			<div><%= group %></div>
+		<% else %>
+			<%= f.hidden_field :group_id,  value: current_user.groups.first.id %>
+		<% end %>
+
+		<%= f.text_field :invitee, placeholder: "enter a member's name or email"  %>
+		<%= f.submit "invite"%>
+	<% end %>
+</div>

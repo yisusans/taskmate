@@ -9,7 +9,7 @@ class InvitesController < ApplicationController
 	def create
 		@group = Group.find(params[:invite][:group])
 		new_member = User.find_by(email: params[:invite][:invitee])
-
+		binding.pry
 
 		if !new_member
 			flash[:errors] = ["Sorry, this person is not a member of TaskMate."]
