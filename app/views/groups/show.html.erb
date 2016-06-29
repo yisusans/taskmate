@@ -11,16 +11,18 @@
 		<ul class="collection">
 				<% @group.activity.each do |event| %>
 				<li class="collection-item avatar">
-					<img src="<%=subject(event).image%>" class="circle" style="height:3.5em;width:3.5em;"/>
-						<%= link_to subject(event).name, user_path(subject(event)) if subject(event) %>
+					<img src="<%=user(event).image%>" class="circle" style="height:3.5em;width:3.5em;"/>
+						<%= link_to user(event).name, user_path(user(event)) if user(event) %>
 
 						<%= verb(event) if verb(event) %>
 
-						<%= link_to direct_obj(event), user_path(direct_obj(event)) if direct_obj(event) %>
+						<%= link_to direct_task(event), task_path(event) if direct_task(event) %>
+
+						<%= link_to direct_user(event), user_path(event) if direct_user(event) %>
 
 						<%= preposition(event) if preposition(event) %>
 
-						<%= link_to indirect_obj(event), user_path(indirect_obj(event)) if indirect_obj(event) %>
+						<%= link_to indirect_user(event), user_path(event) if indirect_user(event) %>
 				</li>
 				<% end %>
 		</ul>
