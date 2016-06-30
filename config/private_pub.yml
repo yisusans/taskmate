@@ -5,6 +5,6 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "secret"
 production:
-  server: "http://taskmate-chat.herokuapp.com/faye"
+  server: "https://taskmate-chat.herokuapp.com/faye"
   secret_token: "3685e4a6a461bc744f0fd2429533f41b9ecadfbf11d5634be70d74bc34e780ee"
   signature_expiration: 3600
