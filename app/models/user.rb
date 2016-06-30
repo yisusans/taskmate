@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   has_many :conversations, through: :messages
 
+  def in_group?
+    self.groups.any?
+  end
 
   def find_incomplete_tasks
     self.tasks.select do |task|
