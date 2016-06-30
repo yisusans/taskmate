@@ -18,7 +18,7 @@
     </div>
 <% end %>
 
-<% current_user.incomplete_assigned_tasks.each do |task| %>
+<% current_user.find_incomplete_tasks.each do |task| %>
   <div class="col s12 m6">
     <div class="card teal lighten-3">
       <div class="card-content blue-text">
