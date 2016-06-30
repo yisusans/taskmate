@@ -36,6 +36,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @assignment = Assignment.new
     @completion = Completion.new
+
+    if request.xhr?
+      @completion= Completion.create!(task_id: @task.id, user_id: current_user.id, date_complete: Date.today, completed: true)
+
+      render partial: @completion, layout: false
+    else
+
+    end
   end
 
   def destroy

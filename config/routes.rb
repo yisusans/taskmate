@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'user_groups' => 'groups#user_groups'
   get 'members' => 'groups#members'
 
+  resources :tasks do
+    resources :completions, only: :create
+  end
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',

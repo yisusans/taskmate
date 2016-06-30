@@ -1,15 +1,16 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
- $(".completion-checkbox").on("click", function(e){
- 	e.preventDefault();
- 	var $target = $(event.target)
- 	$.ajax({
- 		method: "post",
- 		url: $target.parent().attr("action"),
- 		data: $target.parent().serialize(),
- 	}).done( function(resp){
-		$('#completed_checkbox').prop('checked', true);
-		$('#assignments_container').prepend(resp)
- 	});
+ $(".completion-checkbox").on("click", function(e) {
+  e.preventDefault();
+ 	var $target = $(e.target);
+  var task_id = $target.parent().attr("action").split("/")[2];
+  var url = "/tasks/" + task_id
+ 	var a = $.ajax({
+ 		method: "get",
+ 		url: url
+  }).done(function(r) {
+    $target.prepend(r);
  	});
 });
+});
+
