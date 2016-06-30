@@ -10,10 +10,10 @@ $(document).ready(function(){
 
 		}).done(function(resp){
 			$("#invite-message").html("")
-			$("#invite-message").prepend(resp.responseText)
+			$("#invite-message").prepend("<div class='col s12 m6'> <div class='card red lighten-3'><div class='card-content white-text'>" + resp.responseText + "</div></div></div>")
 		}).error(function(err){
 			$("#invite-message").html("")
-			$("#invite-message").prepend(err.responseText)
+			$("#invite-message").prepend("<div class='col s12 m6'> <div class='card red lighten-3'><div class='card-content white-text'>" + err.responseText + "</div></div></div>")
 			$("#invite_invitee").val("")
 			})
 	});
