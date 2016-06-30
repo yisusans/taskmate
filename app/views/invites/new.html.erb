@@ -1,5 +1,6 @@
-<p class="flow-text">Invite a Taskmater to join your group:</p>
+<h4 class="group-join">Add Members to:</h4>
 
+<div id="invite-message"></div>
 <div class="input-field">
 	<%= form_for @invite, :html => {:id => "invite-form"} do |f| %>
 		<% if current_user.groups.length > 1 %>
