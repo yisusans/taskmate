@@ -31,8 +31,37 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   has_many :conversations, through: :messages
 
+  def find_incomplete_tasks
+    self.tasks.select do |task|
+      task.completions.length == 0
+    end
+  end
+
+    def high_priority
+      self.incomplete_assigned_tasks.select do |task|
+        task.priority == "3"
+      end
+    end
+
+    def med_priority
+      self.incomplete_assigned_tasks.select do |task|
+        task.priority == "2"
+      end
+    end
+
+    def low_priority
+      self.incomplete_assigned_tasks.select do |task|
+        task.priority == "1"
+      end
+    end
+
+  def incomplete_assigned_tasks
+    self.assigned_tasks.select do |task|
+      task.completions.length == 0
+    end
+  end
+
 private
-  
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

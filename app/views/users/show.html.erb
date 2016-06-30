@@ -18,18 +18,18 @@
     </div>
 <% end %>
 
-<% assigned_tasks.each do |task| %>
+<% current_user.incomplete_assigned_tasks.each do |task| %>
   <div class="col s12 m6">
     <div class="card teal lighten-3">
       <div class="card-content blue-text">
-      <i class="material-icons announcement">assignment</i> 
+      <i class="material-icons announcement">mode_edit</i> 
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
       </div>
     </div>
   </div>
 <% end %>
 
-<% high_priority.each do |task| %>
+<% current_user.high_priority.each do |task| %>
   <div class="col s12 m6">
     <div class="card red accent-1">
       <div class="card-content white-text">
@@ -40,7 +40,7 @@
   </div> 
 <% end %> 
 
-<% med_priority.each do |task| %>
+<% current_user.med_priority.each do |task| %>
   <div class="col s12 m6">
     <div class="card deep-orange lighten-2">
       <div class="card-content white-text">
@@ -51,7 +51,7 @@
   </div> 
 <% end %> 
 
-<% low_priority.each do |task| %>
+<% current_user.low_priority.each do |task| %>
   <div class="col s12 m6">
     <div class="card amber lighten-2">
       <div class="card-content white-text">
