@@ -25,9 +25,15 @@
                 </a>
             </li>
 
-            <li><a href="/groups/<%=current_user.groups.first.id %>">
+            <li>
+              <% if current_user.in_group? %>
+                <% @path = group_path(current_user.groups.first) %>
+              <% else %>
+                <% @path = new_group_path %>
+              <% end %>
+              <a href=<%=@path%> >
                 <i class="material-icons">supervisor_account</i>
-                </a>
+              </a>
             </li>
             <li><a href="/users/<%=current_user.id%>">
                 <i class="material-icons">assignment_ind</i>
