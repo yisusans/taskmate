@@ -4,16 +4,18 @@
     <% if @messages %>
       <% @messages.each do |message| %>
         <% if message.sender == current_user %>
-          <div class="chip this-chatter">
-            <img class="image" src="<%=message.sender.image if message.sender.image%>"/>
-            <span class="name"><%= message.sender.name %>:</span>
-            <span class="content"><%= message.content %></span>
-          </div>
-        <% else %>
-          <div class="chip other-chatter">
+        <div class="this-chatter">
+          <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
+          <span class="chip">
             <%= message.content %>
-            : <%= message.sender.name %>
-            <img src="<%=message.sender.image%>" alt="Sender">
+          </span>
+        </div>
+        <% else %>
+          <div class="other-chatter">
+            <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
+            <span class="chip">
+              <%= message.content %>
+            </span>
           </div>
         <% end %>
       <% end %>
@@ -33,4 +35,3 @@
 </div>
 
 <%= subscribe_to conversation_path(@conversation) %>
-

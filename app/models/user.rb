@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   has_many :conversations, through: :messages
 
+
   def find_incomplete_tasks
     self.tasks.select do |task|
       task.completions.length == 0
@@ -59,6 +60,18 @@ class User < ActiveRecord::Base
     self.assigned_tasks.select do |task|
       task.completions.length == 0
     end
+  end
+
+  def initials
+    self.name.split(' ').map{|name|name[0]}.join('')
+  end
+
+  def first_name
+    self.name.split(' ')[0]
+  end
+
+  def last_name
+    self.name.split(' ')[-1]
   end
 
 private
