@@ -1,0 +1,12 @@
+<div class="row" id="group-members">
+	<h6 id="members"><%=@group.name%>'s members<h6>
+	<ul class="collection" id="group-membership">
+		<%@group.users.each do |user|%>
+			<li class="collection-item avatar">
+				<img src="<%=user.image%>" class="circle" style="height:3.5em;width:3.5em;"/>
+				<%=user.name%>
+			</li>
+		<%end%>
+	</ul>
+</div>
+

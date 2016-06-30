@@ -6,3 +6,12 @@ var Group = function(params) {
   this.invites = params.invites || [];
   this.conversation = params.conversation || null;
 };
+
+$(document).ready(function(){
+ $(".foo").on("click", function(e){
+ 	debugger;
+ 	e.preventDefault();
+ 	var $target = $(event.target)
+ 	$target.append(data)
+ 	});
+});
