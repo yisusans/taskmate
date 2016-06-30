@@ -2,27 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#messages-container {
+  overflow: scroll;
+  height: 45em;
+}
+
+// current member
+.this-chatter {
+  display: block;
+  float: right;
+  clear: both;
+  min-height: 4em;
+}
+  .this-chatter > span.chip {
+    background-color: #29b6f6;
+    min-height: 4em;
+  }
+  .this-chatter > img.chat-img {
+    display:inline-block;
+    border-radius: 50%;
+    float: right;
+    height: 3em; width: 3em;
+  }
+
+ // other members
+.other-chatter {
+  display: block;
+  float: left;
+  clear: both;
+  min-height: 4em;
+}
+  .other-chatter > span.chip {
+    background-color: #cfd8dc;
+    color: black;
+    min-height: 3em;
+  }
+  .other-chatter > img.chat-img {
+    display:inline-block;
+    border-radius: 50%;
+    float: left;
+    height: 3em; width: 3em;
+  }
+
+.chat-button {
+  margin-bottom: 10px;
+}
+
 .input-container {
   position: fixed;
   bottom:0;
   width: 90%;
-}
-
-.messages-container {
-  overflow: auto;
-  margin-bottom: 20em;
-}
-
-.this-chatter {
-  display: block;
-  max-width: 90%;
-  margin-top: 5px; margin-bottom: 5px;
-}
-
-.other-chatter {
-  float: right;
-}
-
-.chat-button {
-  margin-bottom: 15px;
 }
