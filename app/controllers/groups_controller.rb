@@ -45,6 +45,13 @@ class GroupsController < ApplicationController
 
   end
 
+  def members
+    @group = Group.find_by(params[:group_id])
+    if request.xhr?
+      return render partial: '/groups/members', layout: false
+    end
+  end
+
   def destroy
     @group.destroy
   end
