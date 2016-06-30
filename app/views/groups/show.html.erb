@@ -6,7 +6,7 @@
 	<% if @group.tasks.length > 1 %>
 	  <div id="container" style="width:100%; height:350px;" data-chart-info="<%= @data_for_chart.to_json %>"></div>
 	<%end%>
-	<div class="foo">
+	<div class="see-members">
 	<%= link_to "Members", members_path(@group) %>	
 	</div>
 	<div id="group-members"></div>

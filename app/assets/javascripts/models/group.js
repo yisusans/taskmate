@@ -8,7 +8,7 @@ var Group = function(params) {
 };
 
 $(document).ready(function(){
-	$(".foo").on('click', function(e){
+	$(".see-members").on('click', function(e){
 		e.preventDefault();
 		$target = $(event.target)
 		$.ajax({
