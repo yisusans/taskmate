@@ -3,5 +3,5 @@
 	<div><%= f.hidden_field :task_id,  value: @task.id %></div>
 	<div>Assign to: <%=f.collection_select(:assignee_id, @task.group.users, :id, :name, {}, class: "browser-default")%></div>
 	
-    <%= f.submit "Assign task" %>
+    <%= f.submit "Assign task", class: "waves-effect waves-light btn task-button"%>
 <% end %>
