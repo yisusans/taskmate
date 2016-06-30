@@ -29,14 +29,35 @@
   </div>
 <% end %>
 
-<% incomplete_tasks.each do |task| %>
+<% high_priority.each do |task| %>
   <div class="col s12 m6">
-    <div class="card teal lighten-3">
+    <div class="card red lighten-1">
       <div class="card-content white-text">
       <i class="material-icons schedule">schedule</i>
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
       </div>
     </div>
-  </div>
-<% end %>
+  </div> 
+<% end %> 
 
+<% med_priority.each do |task| %>
+  <div class="col s12 m6">
+    <div class="card orange lighten-2">
+      <div class="card-content white-text">
+      <i class="material-icons schedule">schedule</i>
+          <%= link_to task.task, task_path(task.id), class: "user-profile" %>
+      </div>
+    </div>
+  </div> 
+<% end %> 
+
+<% low_priority.each do |task| %>
+  <div class="col s12 m6">
+    <div class="card green lighten-3">
+      <div class="card-content white-text">
+      <i class="material-icons schedule">schedule</i>
+          <%= link_to task.task, task_path(task.id), class: "user-profile" %>
+      </div>
+    </div>
+  </div> 
+<% end %> 
