@@ -7,24 +7,12 @@ class CompletionsController < ApplicationController
   end
 
   def create
-    @task = Task.find(params[:completion][:task_id])
-    @completion = Completion.new(completed: true,
-                                 user_id: current_user.id,
-                                 date_complete: Date.today,
-                                 task_id: @task.id
-                                 )
-    if @completion.save
-      if request.xhr?
-        return render partial: '/completions/completion_card', layout: false
-      end
-      redirect_to @task
+    if @completion = Completion.create!(completed: true, user_id:current_user.id, date_complete: Date.today, task_id: params[:task_id])
     else
       flash[:errors] = @completion.errors.full_messages
       redirect_to @task
     end
   end
-
-
 
   private
   

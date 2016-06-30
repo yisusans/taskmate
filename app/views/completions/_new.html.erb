@@ -1,6 +1,6 @@
-<%= form_for @completion, :html => {:class => "completion-checkbox"} do |f| %>
-	<%= f.hidden_field :task_id, value: @task.id %>
+<%= form_for [@task,@completion], remote: true, :html => {class: "completion-checkbox" } do |f| %>
+  <%= f.check_box :completed, id:'completed_checkbox' %>
 
-	<%= f.check_box :completed, id: "completed_checkbox" %> 
-	
+  <%= f.label :check_to_complete, for:"completed_checkbox" %> 
+
 <% end %>

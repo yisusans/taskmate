@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :tasks do
+    resources :completions, only: :create
+  end
+
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         passwords: 'users/passwords',
