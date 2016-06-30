@@ -49,6 +49,13 @@ class GroupsController < ApplicationController
     @group.destroy
   end
 
+  def group_members
+    @group = Group.find_by(params[:group_id])
+    if request.xhr?
+        return render partial: '/groups/group_members', layout: false
+    end
+  end
+
   private
     def set_group
       @group = Group.find(params[:id])
@@ -58,3 +65,4 @@ class GroupsController < ApplicationController
       params.require(:group).permit(:name)
     end
 end
+

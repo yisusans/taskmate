@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   post 'accept' => 'invites#accept'
   get 'user_groups' => 'groups#user_groups'
+  get 'group_members' => 'groups#group_members'
 
 
   # Example of regular route:
