@@ -20,7 +20,7 @@
 
 <% assigned_tasks.each do |task| %>
   <div class="col s12 m6">
-    <div class="card red lighten-3">
+    <div class="card teal lighten-3">
       <div class="card-content blue-text">
       <i class="material-icons announcement">assignment</i> 
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
@@ -31,7 +31,7 @@
 
 <% high_priority.each do |task| %>
   <div class="col s12 m6">
-    <div class="card red lighten-1">
+    <div class="card red accent-1">
       <div class="card-content white-text">
       <i class="material-icons schedule">schedule</i>
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
@@ -42,7 +42,7 @@
 
 <% med_priority.each do |task| %>
   <div class="col s12 m6">
-    <div class="card orange lighten-2">
+    <div class="card deep-orange lighten-2">
       <div class="card-content white-text">
       <i class="material-icons schedule">schedule</i>
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
@@ -53,7 +53,7 @@
 
 <% low_priority.each do |task| %>
   <div class="col s12 m6">
-    <div class="card green lighten-3">
+    <div class="card amber lighten-2">
       <div class="card-content white-text">
       <i class="material-icons schedule">schedule</i>
           <%= link_to task.task, task_path(task.id), class: "user-profile" %>
