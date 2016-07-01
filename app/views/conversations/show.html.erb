@@ -6,7 +6,7 @@
         <% @messages.each do |message| %>
           <% if message.from current_user %>
 
-            <div class="this-chatter">
+            <div class="this-chatter" id="chatter_<%=message.sender.id%>">
               <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
               <div class="chip">
                 <%= message.content %>
@@ -15,7 +15,7 @@
 
           <% else %>
 
-            <div class="other-chatter">
+            <div class="other-chatter" id="chatter_<%=message.sender.id%>">
               <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
               <div class="chip">
                 <%= message.content %>
