@@ -11,11 +11,18 @@
 
 // current member
 .this-chatter {
-  min-height: 4em;
+  min-height: 4.5em;
 }
   .this-chatter > div.chip {
+    display: block;
+    line-height: normal;
     background-color: #29b6f6;
     float: right;
+    color: white;
+    max-width: 80%;
+    overflow-wrap: break-word;
+    height: inherit;
+    clear:left;
   }
   .this-chatter > img.chat-img {
     display:inline-block;
@@ -29,12 +36,18 @@
 
  // other members
 .other-chatter {
-  min-height: 4em;
+  min-height: 4.5em;
 }
   .other-chatter > div.chip {
+    display: block;
+    line-height: normal;
     background-color: #cfd8dc;
+    overflow-wrap: break-word;
     float: left;
+    clear: right;
     color: black;
+    max-width: 80%;
+    height: inherit;
   }
   .other-chatter > img.chat-img {
     display:inline-block;
