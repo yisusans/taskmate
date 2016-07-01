@@ -1,44 +1,35 @@
-<div class="row">
-  <div class="col s12">
-
-    <div class="row messages-container">
-      <% if @messages %>
-        <% @messages.each do |message| %>
-          <% if message.from current_user %>
-
-            <div class="this-chatter">
-              <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
-              <div class="chip">
-                <%= message.content %>
-              </div>
-            </div>
-
-          <% else %>
-
-            <div class="other-chatter">
-              <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
-              <div class="chip">
-                <%= message.content %>
-              </div>
-            </div>
-
-          <% end %>
+<div id="chat-box">
+  <div id="messages-container">
+    <% if @messages %>
+      <% @messages.each do |message| %>
+        <% if message.sender == current_user %>
+        <div class="this-chatter">
+          <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
+          <span class="chip">
+            <%= message.content %>
+          </span>
+        </div>
+        <% else %>
+          <div class="other-chatter">
+            <img class="chat-img" src="<%=message.sender.image%>" alt="<%=message.sender.initials%>"/>
+            <span class="chip">
+              <%= message.content %>
+            </span>
+          </div>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
 
-    <div class="input-field col s12 message-form">
-      <%= form_for [@conversation, Message.new], remote: true do |f| %>
-        <%= f.text_area :content, class:"materialize-textarea message-input" %>
-        <%= f.label "Say something:", id:'content' %>
+  <div class="input-container">
+    <%= form_for [@conversation, Message.new], remote: true do |f| %>
+        <%= f.text_area :content, class: "message-input" %>
         <%= f.hidden_field :conversation_id, value: @conversation.id %>
-        <button class="waves-effect waves-light btn chat-button red lighten-2 right">
+        <button class="waves-effect waves-light btn chat-button">
           <%= f.submit "send" %>
         </button>
-      <% end %>
-    </div>
-
+    <% end %>
   </div>
 </div>
 
