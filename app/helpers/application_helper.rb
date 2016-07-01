@@ -4,6 +4,7 @@ module ApplicationHelper
 	include AssignmentsHelper
 	include UsersHelper
 	include TasksHelper
+	include ConversationsHelper
 
 	# module DateFormatting
 	def long_form_date(timestamp)

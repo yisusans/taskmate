@@ -3,4 +3,8 @@ class Conversation < ActiveRecord::Base
   has_many :messages
 
   accepts_nested_attributes_for :messages
+
+  def last_message
+    messages.last
+  end
 end
