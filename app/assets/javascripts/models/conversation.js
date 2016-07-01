@@ -1,3 +1,5 @@
 $(document).ready(function() {
-  $(".messages-container").animate({ scrollTop: $('.messages-container')[0].scrollHeight}, 1000);
-})
+  if ( $( ".messages-container" ).length ) {
+    $(".messages-container").animate({ scrollTop:$(".messages-container")[0].scrollHeight}, 1000);
+  };
+});
