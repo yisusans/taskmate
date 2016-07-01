@@ -6,13 +6,12 @@
 
   var otherChatter = "<div class='other-chatter'><div class='chip'><%=@message.content%></div><img class='chat-img' src='<%=@message.sender.image%>' alt='<%=@message.sender.initials%>'/></div>";
 
-  <% if @message.from current_user %>
-    messagesContainer.append(thisChatter);
-  <% else %>
-    messagesContainer.append(otherChatter);
-  <% end %>
+  var chatter = $("#chatter_<%=@message.sender.id%>").clone();
+  chatter.children('.chip').html("<%=@message.content%>")
 
-    $(".materialize-textarea").val("");
+  messagesContainer.append(chatter);
 
-    $(".messages-container").animate({ scrollTop: $('.messages-container')[0].scrollHeight}, 1000);
+  $(".materialize-textarea").val("");
+
+  $(".messages-container").animate({ scrollTop: $('.messages-container')[0].scrollHeight}, 1000);
 <% end %>
