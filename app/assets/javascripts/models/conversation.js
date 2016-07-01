@@ -1,5 +1,5 @@
-var Conversation = function(params) {
-  params = params || {};
-  this.group = params.group;
-  this.messages = params.messages || [];
-}
+$(document).ready(function() {
+  if ( $( ".messages-container" ).length ) {
+    $(".messages-container").animate({ scrollTop:$(".messages-container")[0].scrollHeight}, 1000);
+  };
+});

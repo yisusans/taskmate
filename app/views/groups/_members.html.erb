@@ -1,8 +1,8 @@
 <div class='members'>
 <% @group.users.each do |m| %>
 	<div class="chip teal lighten-3">
-      <img class="image" src="<%=m.image if m.image%>"/>
-		<%= m.name %>
+    <img class="image member-img" src="<%=m.image%>" alt="<%=m.initials%>"/>
+		<span class="member_name"><%= m.first_name %></span>
   </div>
 <% end %>
 </div>
