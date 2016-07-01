@@ -5408,21 +5408,10 @@ a.waves-effect .waves-ripple {
   line-height: normal;
   font-weight: 500;
   color: #ffffff;
-  padding: 0.4em 11em 0.4em;
+  padding: 4px 12px 4px 12px;
   max-width: 80%;
   border-radius: 15px;
 }
-
-/*.chip img {
-  float: left;
-  margin: -7px 8px 0 -14px;
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  text-align: center;
-  background-color: white;
-  font-weight: 600;
-}*/
 
 .chip i.material-icons {
   cursor: pointer;
