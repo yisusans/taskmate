@@ -7,7 +7,7 @@
   var otherChatter = "<div class='other-chatter'><div class='chip'><%=@message.content%></div><img class='chat-img' src='<%=@message.sender.image%>' alt='<%=@message.sender.initials%>'/></div>";
 
   var chatter = $("#chatter_<%=@message.sender.id%>").clone();
-  chatter.children('.chip').html("<%=@message.content%>")
+  chatter.children('.chip').html("<%=@message.content%>");
 
   messagesContainer.append(chatter);
 
