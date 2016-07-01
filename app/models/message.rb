@@ -4,4 +4,8 @@ class Message < ActiveRecord::Base
   belongs_to :receiver, foreign_key: :receiver_id, class_name: "User"
 
   validates :content, presence: true
+
+  def from(user)
+    self.sender == user
+  end
 end
