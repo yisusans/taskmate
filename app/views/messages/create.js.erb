@@ -1,23 +1,18 @@
 <% publish_to conversation_path(@message.conversation) do %>
-  var messagesContainer = $("#messages-container")
 
-  messagesContainer.append("<div class='chip'><img class='image' src='<%=@message.sender.image if @message.sender.image%>'/><span class='name'><%= @message.sender.name %>:</span><span class='content'><%= @message.content %></span></div>");
+  var messagesContainer = $(".messages-container");
 
-  $(".message-input").val("");
+  var thisChatter = "<div class='this-chatter'><img class='chat-img' src='<%=@message.sender.image%>' alt='<%=@message.sender.initials%>'/><div class='chip'><%=@message.content%></div></div>";
 
+  var otherChatter = "<div class='other-chatter'><div class='chip'><%=@message.content%></div><img class='chat-img' src='<%=@message.sender.image%>' alt='<%=@message.sender.initials%>'/></div>";
+
+  <% if @message.from current_user %>
+    messagesContainer.append(thisChatter);
+  <% else %>
+    messagesContainer.append(otherChatter);
+  <% end %>
+
+    $(".materialize-textarea").val("");
+
+    $(".messages-container").animate({ scrollTop: $('.messages-container')[0].scrollHeight}, 1000);
 <% end %>
-
-
-// var Message = function() {
-//   this.content = <%= @message.content %>;
-//   this.sender = <%= @message.sender.name %>;
-//   this.image = <%= @message.sender.image %>;
-// }
-//
-// Message.prototype.render = function() {
-//   var message = $('.chip').clone();
-//   message.children('.image').html(this.image)
-//   message.children('.name').html(this.sender+":")
-//   message.children('.content').html(this.content)
-//   return message;
-// }
