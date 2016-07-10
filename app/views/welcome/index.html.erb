@@ -20,15 +20,23 @@
         <div class="container center-align">
         <div class="row buttons">
             <a href="/users/sign_up">
-              <button class="waves-effect waves-light btn  blue-grey lighten-3 sign-buttons">Sign Up</button>
+              <button class="waves-effect waves-light btn blue-grey lighten-3 sign-buttons">Sign Up</button>
             </a>
           </div>
-          <div class="row buttons">
-            <a href="/users/sign_in" class="button-text">
-              <button class="waves-effect waves-light btn  teal lighten-2 sign-buttons">Log In</button>
-            </a>
-          </div>
+        <div class="row buttons">
+          <a href="/users/sign_in" class="button-text">
+            <button class="waves-effect waves-light btn teal lighten-2 sign-buttons">Log In</button>
+          </a>
         </div>
+        <div class="row buttons">
+          <%= form_for(User.new, url: user_session_path(@user)) do |f| %>
+            <%= f.hidden_field :email, value: "taskmate.guest@gmail.com" %>
+            <%= f.hidden_field :password, value: "000000" %>
+            <%= f.submit "Guest", class: "waves-effect waves-light btn cyan lighten-1 sign-buttons" %>
+          <% end %>
+        </div>
+        </div>
+
       </div>
     </div>
 
