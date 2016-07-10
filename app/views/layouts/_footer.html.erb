@@ -1,5 +1,5 @@
 
-<% if current_user.groups.empty? %>
+<% if !current_user.groups.empty? %>
  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 50px; right: 15px;">
     <a class="btn-floating btn-medium  red lighten-2">
       <i class="material-icons" id="floater-icon">add</i>
