@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  
   def index
     unless !!current_user
       render 'index', layout: false
@@ -6,4 +7,7 @@ class WelcomeController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
+  
+
 end
