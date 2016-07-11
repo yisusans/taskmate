@@ -31,9 +31,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       @membership = Membership.create(group_id: @group.id, user_id: current_user.id)
-
       Conversation.create!(group_id: @group.id)
-
       redirect_to @group
     else
       flash[:errors] = @group.errors.full_messages
@@ -43,7 +41,7 @@ class GroupsController < ApplicationController
   end
 
   def members
-    @group = Group.find_by(params[:group_id])
+    @group = Group.find_by(id: params[:format])
     if request.xhr?
       return render partial: '/groups/members', layout: false
     end
