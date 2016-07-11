@@ -28,11 +28,11 @@
             <button class="waves-effect waves-light btn teal lighten-2 sign-buttons">Log In</button>
           </a>
         </div>
-        <div class="row buttons">
+        <div class="row buttons sample">
           <%= form_for(User.new, url: user_session_path(@user)) do |f| %>
             <%= f.hidden_field :email, value: "taskmate.guest@gmail.com" %>
             <%= f.hidden_field :password, value: "000000" %>
-            <%= f.submit "Guest", class: "waves-effect waves-light btn cyan lighten-1 sign-buttons" %>
+            <%= f.submit "Guest", class: "waves-effect waves-light btn cyan lighten-1 sign-buttons guest-btn" %>
           <% end %>
         </div>
         </div>
