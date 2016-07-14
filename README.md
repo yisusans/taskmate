@@ -4,4 +4,4 @@ TaskMate - a mobile first web-application that allows users to create groups, in
 
 TaskMate is a Ruby on Rails app built in 7 days with a team of four.  
 
-TaskMate is live here: http://taskmated.herokuapp.com/
+TaskMate is live here: http://www.taskmate.us/ 
